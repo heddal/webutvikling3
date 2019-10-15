@@ -1,7 +1,7 @@
 // this is the main page
 import React, { Component } from 'react';
-import './Main.css'
-import Grid from '@material-ui/core/Grid'
+import Grid from '@material-ui/core/Grid';
+import './Main.css';
 import { withStyles } from '@material-ui/styles';
 import { Paper, Typography } from '@material-ui/core';
 
@@ -16,9 +16,9 @@ const styles = theme => ({
 
 class Main extends Component {
     state = {  }
-    render() { 
+    render() {
         const { classes } = this.props;
-        return ( 
+        return (
             <div display="flex" >
                 <Grid container justify="center" alignItems="center" direction="column" >
                     {/* Using h3,4 osv here, byt material ui normally uses typography */}
@@ -28,7 +28,7 @@ class Main extends Component {
                     <h4>
                         Where is your ultimate destination?
                     </h4>
-                        
+
                     <h6>
                         Place search bar here
                     </h6>
