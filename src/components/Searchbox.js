@@ -1,4 +1,4 @@
-/* code from https://material-ui.com, slightly modefyied */
+/* the search box is made with code from https://material-ui.com */
 
 import React from 'react';
 import clsx from 'clsx';
@@ -6,8 +6,11 @@ import { makeStyles } from '@material-ui/core/styles';
 import IconButton from '@material-ui/core/IconButton';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import TextField from '@material-ui/core/TextField';
+import { connect } from 'react-redux'
+import { changeSearchword } from '../actions/SearchAction'
 
-const Searchbox = () => {
+const Searchbox = (props) => {
+
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -31,6 +34,14 @@ const useStyles = makeStyles(theme => ({
     setValues({ ...values, [prop]: event.target.value });
   };
 
+  const keyPressed = prop => event => {
+    if (event.keyCode === 13) {
+      props.changeSearchword(values.search)
+    }
+  };
+
+
+
 
   return (
     <div className={classes.root}>
@@ -41,6 +52,7 @@ const useStyles = makeStyles(theme => ({
         label="search"
         value={values.search}
         onChange={handleChange('search')}
+        onKeyUp = {keyPressed(props.keyPressed)}
         InputProps={{
           endAdornment: (
             <InputAdornment position="end">
@@ -56,5 +68,11 @@ const useStyles = makeStyles(theme => ({
   );
 }
 
+const mapDispatchToProps = (dispatch) => {
+  return {
+    changeSearchword: (word) => dispatch(changeSearchword(word))
+  }
+}
 
-export default Searchbox;
+
+export default connect(null, mapDispatchToProps)(Searchbox);
