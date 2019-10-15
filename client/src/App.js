@@ -1,4 +1,6 @@
 import React from 'react';
+import Card from './components/Card';
+import Main from './pages/Main';
 import './App.css';
 import Searchbox from './components/Searchbox'
 import { createStore, applyMiddleware } from 'redux';
@@ -13,9 +15,12 @@ const store = createStore(rootReducer, applyMiddleware(thunk)) ;
 function App() {
   return (
     <Provider store = {store}>
-      <Searchbox/>
+      <Card />
+      <Main />
+      <Searchbox />
     </Provider>
   );
 }
 
 export default App;
+
