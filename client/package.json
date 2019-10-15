@@ -8,7 +8,10 @@
     "@material-ui/styles": "^4.5.0",
     "react": "^16.10.2",
     "react-dom": "^16.10.2",
+    "react-redux": "^7.1.1",
     "react-scripts": "3.2.0",
+    "redux": "^4.0.4",
+    "redux-thunk": "^2.3.0",
     "typeface-roboto": "0.0.75"
   },
   "scripts": {
@@ -32,5 +35,8 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "http://localhost:5000"
+  "proxy": "http://localhost:5000",
+  "devDependencies": {
+    "redux-devtools": "^3.5.0"
+  }
 }
