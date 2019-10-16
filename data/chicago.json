@@ -1,0 +1,9 @@
+{
+    "id": 11,
+    "name": "Chicago",
+    "description": "The City of Chicago covers an  area of 60,000 hectares and sits 176 meters (578 feet) above sea level on the southwestern shore of Lake Michigan. At 190 km wide and 495 km long, its the 5th largest body of fresh water in the world. The city is traversed by the Chicago and Calumet rivers. Chicago's extensive parklands, including 3,000 hectares of city parks attract an estimated 86 million visitors annually.",
+    "continent": "America",
+    "temperature": [-9, 28],
+    "mood": ["city", "culture"],
+    "popularity": 0
+}
