@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import './Card.css';
+import bilde from './bilde.jpg';
 
 class Card extends Component {
   constructor(props) {
@@ -25,27 +27,18 @@ class Card extends Component {
 // Husk dette er egt ett kort, så ikke vis liste med steder her. Nå er det kun for å teste.
 // Match heller id med gitt id og print dét stedet.
   render() {
+
+    //console.log({bilde})
     return (
-      <div>
-        <h2>This is a CARD</h2>
-        <h3>Customers: </h3>
-        <ul>
-          {this.state.customers.map( customers =>
-            <li key={customers.id}> { customers.firstName } { customers.lastName } </li>
-          )}
-        </ul>
-        <h3>Places stored:</h3>
-        <ul>
-          {this.state.places.map( places =>
-            <li key={places.id}> {places.name} </li>
-          )}
-
-        </ul>
-
-      </div>
+      <div className = 'card-container'>
+        <div className = 'card-item'> <img src = {bilde} alt="alt" /> </div>
+        <div className = 'card-item'> TRONDHEIM </div>
+        <div className = 'card-item'> <button> Show More </button> </div>
+      </div> 
     );
   }
 
 }
+
 
 export default Card;
