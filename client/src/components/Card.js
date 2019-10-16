@@ -35,6 +35,24 @@ class Card extends Component {
         <div className = 'card-item'> TRONDHEIM </div>
         <div className = 'card-item'> <button> Show More </button> </div>
       </div> 
+
+      /*<div className = 'card'>
+          <h2>This is a CARD</h2>
+          <h3>Customers: </h3>
+          <ul>
+            {this.state.customers.map( customers =>
+              <li key={customers.id}> { customers.firstName } { customers.lastName } </li>
+            )}
+          </ul>
+          <h3>Places stored:</h3>
+          <ul>
+            {this.state.places.map( places =>
+             <li key={places.id}> {places.name} </li>
+            )}
+
+          </ul>
+
+        </div>*/
     );
   }
 
