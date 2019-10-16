@@ -6,6 +6,7 @@ const filterReducersDefaultState = {
 };
 
 const filterReducers = (state = filterReducersDefaultState, action) => {
+    console.log('FILTRERING')
     switch(action.type) {
         case 'SEARCH_WORD':
             return {
