@@ -30,11 +30,13 @@ const useStyles = makeStyles(theme => ({
         search:''
     });
 
-  const handleChange = prop => event => {
+//Adds keypressed to search to make up the search word
+  const handleChange = prop => event => { 
     setValues({ ...values, [prop]: event.target.value });
   };
-
-  const keyPressed = prop => event => {
+  
+//If the key pressed is the enter-key, the searchword will be updated in store
+  const keyPressed = prop => event => { 
     if (event.keyCode === 13) {
       props.changeSearchword(values.search)
     }
