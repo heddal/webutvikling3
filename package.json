@@ -1,8 +1,23 @@
 {
   "name": "prosjekt_3",
+<<<<<<< HEAD
   "version": "1.0.0",
   "description": "Group project",
   "main": "server.js",
+=======
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@material-ui/core": "^4.5.0",
+    "@material-ui/icons": "^4.4.3",
+    "@material-ui/styles": "^4.5.0",
+    "react": "^16.10.2",
+    "react-dom": "^16.10.2",
+    "react-scripts": "3.2.0",
+    "redux": "^4.0.4",
+    "typeface-roboto": "0.0.75"
+  },
+>>>>>>> #16 reducers and actinos for sorting
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
