@@ -3,6 +3,7 @@
 const destinationsReducerDefaultState = [];
 
 const destinationReducers = (state = destinationsReducerDefaultState, action) => {
+    console.log('LEGGE TIL')
     switch(action.type){
         case 'ADD_DESTINATION':
             return [

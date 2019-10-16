@@ -13,9 +13,11 @@ const addDestination = ({
     }
 });
 
+/*
 const removeDestination = ({ id } = {}) => ({
     type: 'REMOVE_BOOK',
     id
 });
+*/
 
 export default addDestination;
