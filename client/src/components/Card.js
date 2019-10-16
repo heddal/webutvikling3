@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import color from '@material-ui/core/colors/red';
+import { green } from '@material-ui/core/colors';
 
 class Card extends Component {
   constructor(props) {
@@ -26,7 +28,7 @@ class Card extends Component {
 // Match heller id med gitt id og print dét stedet.
   render() {
     return (
-      <div>
+      <div style={{width: '30%', textAlign: 'center', backgroundColor: 'lavenderblush', margin: '8px', borderRadius: '10px'}}>
         <h2>This is a CARD</h2>
         <h3>Customers: </h3>
         <ul>
