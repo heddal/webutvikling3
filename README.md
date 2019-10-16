@@ -9,5 +9,8 @@ og bare disse:
 $ npm install express --save
 ```
 ```
+$ npm install --save-dev nodemon
+```
+```
 $ npm install concurrently --save
 ```
