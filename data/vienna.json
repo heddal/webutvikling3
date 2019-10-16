@@ -1,0 +1,9 @@
+{
+    "id": 13,
+    "name": "Vienna",
+    "description": "Austria’s capital is famous for its cultural events, imperial sights, coffee houses, cosy wine taverns, and the very special Viennese charm. Austria’s capital is famous for its cultural events, imperial sights, coffee houses, cosy wine taverns, and the very special Viennese charm.",
+    "continent": "Europe",
+    "temperature": [-12, 36],
+    "mood": ["city", "culture"],
+    "popularity": 0
+}
