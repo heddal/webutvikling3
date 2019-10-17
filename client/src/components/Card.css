@@ -5,6 +5,7 @@
     max-width: 360px;
     transition: 0.3s;
     margin: 10px;
+    border-radius: 7px;
 }
 
 .card-container:hover{
@@ -28,4 +29,9 @@
     padding: 5px;
     color: white;
     border-radius: 7px;
+}
+
+.card-item button:hover{
+    background-color: #cccccc;
+    transition: 0.5s;
 }
