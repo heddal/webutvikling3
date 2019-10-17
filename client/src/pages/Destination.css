@@ -1,0 +1,27 @@
+.container-destination{
+    display: grid;
+    grid-template-columns: 12.5% auto 12.5%;
+    grid-template-rows: 50% 50%;
+    grid-template-areas: 
+    "back image ."
+    ". text .";
+    text-align: center;
+    width: 100vw;
+    height: 100vh;
+    background-color: lavenderblush
+
+}
+
+.image {
+    grid-area: image;
+    margin: 10px;
+    
+}
+
+.text {
+    grid-area: text;
+}
+
+.back {
+    grid-area: back;
+}
