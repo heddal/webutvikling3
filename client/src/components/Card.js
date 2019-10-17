@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './Card.css';
 import bilde from './bilde.jpg';
 
+
 class Card extends Component {
   constructor(props) {
     super(props);
@@ -24,16 +25,19 @@ class Card extends Component {
         () => console.log('Places fetched: ', places)));
   }
 
+
+
+
 // Husk dette er egt ett kort, så ikke vis liste med steder her. Nå er det kun for å teste.
 // Match heller id med gitt id og print dét stedet.
   render() {
 
     //console.log({bilde})
     return (
-      <div className = 'card-container'>
+      <div className = 'card-container' style={{width: '30%', textAlign: 'center',  margin: '8px', borderRadius: '10px'}}>
         <div className = 'card-item'> <img src = {bilde} alt="alt" /> </div>
         <div className = 'card-item'> TRONDHEIM </div>
-        <div className = 'card-item'> <button> Show More </button> </div>
+        <div className = 'card-item' > <button> Show More </button> </div>
       </div> 
 
       /*<div className = 'card'>

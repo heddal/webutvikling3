@@ -9,6 +9,7 @@ import TextField from '@material-ui/core/TextField';
 import { connect } from 'react-redux'
 import { changeSearchword } from '../actions/SearchAction'
 
+
 const Searchbox = (props) => {
 
 
@@ -37,9 +38,10 @@ const useStyles = makeStyles(theme => ({
   
 //If the key pressed is the enter-key, the searchword will be updated in store
   const keyPressed = prop => event => { 
-    if (event.keyCode === 13) {
+    if (event.keyCode === 13) { //13 is enter
       props.changeSearchword(values.search)
     }
+
   };
 
 
