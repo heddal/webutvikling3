@@ -4,6 +4,7 @@ import React from 'react';
 import clsx from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';
 import IconButton from '@material-ui/core/IconButton';
+import SearchIcon from '@material-ui/icons/SearchOutlined';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import TextField from '@material-ui/core/TextField';
 import { connect } from 'react-redux'
@@ -54,17 +55,14 @@ const useStyles = makeStyles(theme => ({
         id="search-box"
         className={clsx(classes.margin, classes.textField)}
         variant="outlined"
-        label="search"
+        label="search location"
         value={values.search}
         onChange={handleChange('search')}
         onKeyUp = {keyPressed(props.keyPressed)}
         InputProps={{
           endAdornment: (
             <InputAdornment position="end">
-              <IconButton
-                edge="end"
-                aria-label="toggle password visibility">
-              </IconButton>
+              <SearchIcon/>
             </InputAdornment>
           ),
         }}
