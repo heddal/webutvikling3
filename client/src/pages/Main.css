@@ -1,5 +1,29 @@
 
-.main {
+.alt{
     display: flex;
-    height: 100%;
+    flex-wrap: wrap;
+    direction: row;
+
+}
+
+
+.main {
+
+    align-items: center;
+    display: flex;
+    min-height: 100vh;
+    width: 100vw;
+}
+
+.text{
+    justify-content: center;
+    display: flex;
+    flex-direction: row;
+    width:100%;
+}
+
+.content{
+    width: 50%;
+    justify-content: center;
+    text-align: center;
 }

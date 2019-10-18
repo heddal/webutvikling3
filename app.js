@@ -1,5 +1,14 @@
 const express = require('express');
 const app = express();
+var MongoClient = require('mongodb').MongoClient;
+
+// Connect to the db
+MongoClient.connect("mongodb://it2810-10.idi.ntnu.no:27017/admin", function (err, db) {
+   
+     if(err) throw err;
+     console.log("Up and running woopdidoop")
+                
+});
 
 // customers is just example code. Can be deleted...
 app.get('/api/customers', (req, res) => {
