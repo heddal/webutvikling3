@@ -11,6 +11,7 @@ import { connect } from 'react-redux'
 import { changeSearchword } from '../actions/SearchAction'
 
 
+
 const Searchbox = (props) => {
 
 
@@ -46,7 +47,7 @@ const useStyles = makeStyles(theme => ({
 
   };
 
-
+  
 
 
   return (
@@ -75,7 +76,13 @@ const mapDispatchToProps = (dispatch) => {
   return {
     changeSearchword: (word) => dispatch(changeSearchword(word))
   }
+};
+
+const mapStateToProps = (state) => { //give us accsess to the data in store
+  return {
+    word: state.search.searchWord
+  }
 }
 
 
-export default connect(null, mapDispatchToProps)(Searchbox);
+export default connect(mapStateToProps, mapDispatchToProps)(Searchbox);

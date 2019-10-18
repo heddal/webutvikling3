@@ -38,6 +38,6 @@
 }
 
 .card-item button:hover{
-    background-color: #cccccc;
+    background-color:rgb(241, 219, 226);
     transition: 0.5s;
 }
