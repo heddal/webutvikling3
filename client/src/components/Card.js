@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './Card.css';
 import bilde from './bilde.jpg';
+import { Link } from 'react-router-dom'
 
 
 class Card extends Component {
@@ -37,7 +38,7 @@ class Card extends Component {
       <div className = 'card-container'>
         <div className = 'card-item'> <img src = {bilde} alt="alt" /> </div>
         <div className = 'card-item'> TRONDHEIM </div>
-        <div className = 'card-item' > <button> Show More </button> </div>
+        <div className = 'card-item' > <Link to="/Destination"><button> Show More </button> </Link> </div>
       </div> 
 
       /*<div className = 'card'>
