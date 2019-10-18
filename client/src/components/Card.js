@@ -34,7 +34,7 @@ class Card extends Component {
 
     //console.log({bilde})
     return (
-      <div className = 'card-container' style={{width: '30%', textAlign: 'center',  margin: '8px', borderRadius: '10px'}}>
+      <div className = 'card-container'>
         <div className = 'card-item'> <img src = {bilde} alt="alt" /> </div>
         <div className = 'card-item'> TRONDHEIM </div>
         <div className = 'card-item' > <button> Show More </button> </div>
