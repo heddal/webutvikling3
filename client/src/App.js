@@ -19,7 +19,7 @@ function App() {
     <Provider store = {store}>
       <Router>
 
-        <Route path="/main" component={Main} />
+        <Route path="/" exact component={Main} />
         <Route path="/search" component={SearchPage} />
         <Route path="/destination" component={Destination} />
 
