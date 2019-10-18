@@ -1,5 +1,7 @@
 {
   "name": "prosjekt_3",
+  "description": "Group project",
+  "main": "server.js",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -28,5 +30,4 @@
   },
   "author": "gruppe 10",
   "license": "ISC"
-  
 }

@@ -1,5 +1,21 @@
 const express = require('express');
 const app = express();
+const mongo = require('mongodb').MongoClient;
+
+const url = 'mongodb://it2810-10.idi.ntnu.no:27017'
+
+mongo.connect(url, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+}, (err, client) => {
+if (err) {
+  console.error(err)
+  return
+}
+//...
+})
+
+const db = client.db('admin')
 
 // customers is just example code. Can be deleted...
 app.get('/api/customers', (req, res) => {
