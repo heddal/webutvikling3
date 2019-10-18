@@ -3,8 +3,7 @@ import Searchbox from '../components/Searchbox'
 import { Grid } from '@material-ui/core';
 import Card from '../components/Card';
 import InfiniteScroll from 'react-infinite-scroller';
-
-
+import { connect } from 'react-redux'
 
 
 
@@ -55,7 +54,7 @@ class SearchPage extends Component {
 				alignItems='center'
             >
                 <div style={{width:'100vw', textAlign:'center'}}>
-                    <h2 style={{padding:8}}>Resultater fra søk</h2>
+                    <h2 style={{padding:8}}>Resultater fra "{this.props.word}"</h2>
                     <Searchbox/>
                 </div>
                 
@@ -85,5 +84,11 @@ class SearchPage extends Component {
          );
     }
 }
+
+const mapStateToProps = (state) => { //give us accsess to the data in store
+    return {
+      word: state.search.searchWord
+    }
+  }
  
-export default SearchPage;
+export default connect(mapStateToProps)(SearchPage);

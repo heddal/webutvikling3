@@ -3,12 +3,12 @@
 import React from 'react';
 import clsx from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';
-import IconButton from '@material-ui/core/IconButton';
 import SearchIcon from '@material-ui/icons/SearchOutlined';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import TextField from '@material-ui/core/TextField';
 import { connect } from 'react-redux'
 import { changeSearchword } from '../actions/SearchAction'
+import { withRouter } from 'react-router-dom';
 
 
 
@@ -31,7 +31,7 @@ const useStyles = makeStyles(theme => ({
 
     const classes = useStyles();
     const [values, setValues] = React.useState({
-        search:''
+        search: props.word
     });
 
 //Adds keypressed to search to make up the search word
@@ -43,6 +43,7 @@ const useStyles = makeStyles(theme => ({
   const keyPressed = prop => event => { 
     if (event.keyCode === 13) { //13 is enter
       props.changeSearchword(values.search)
+      props.history.push('/search');
     }
 
   };
@@ -85,4 +86,4 @@ const mapStateToProps = (state) => { //give us accsess to the data in store
 }
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(Searchbox);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Searchbox));

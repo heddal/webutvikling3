@@ -38,7 +38,7 @@ class Card extends Component {
       <div className = 'card-container'>
         <div className = 'card-item'> <img src = {bilde} alt="alt" /> </div>
         <div className = 'card-item'> TRONDHEIM </div>
-        <div className = 'card-item' > <Link to="/Destination"><button> Show More </button> </Link> </div>
+        <div className = 'card-item' > <Link to="/Destination" className='link'><button> Show More </button> </Link> </div>
       </div> 
 
       /*<div className = 'card'>

@@ -37,6 +37,13 @@
     border-radius: 7px;
 }
 
+.link {
+    text-decoration: none;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
 .card-item button:hover{
     background-color:rgb(241, 219, 226);
     transition: 0.5s;
