@@ -2,8 +2,10 @@
 
 import React, { Component } from 'react';
 import Image from '../components/Image';
+import BackButton from '../components/BackButton';
 import Infotext from '../components/Infotext'
 import './Destination.css'
+
 
 
 class Destination extends Component {
@@ -14,7 +16,7 @@ class Destination extends Component {
         return(
             <div className = 'container-destination'>
                 <div className = 'back'>
-                    Her kan vi ha en tilbakeknapp
+                    <BackButton />
                 </div>
                 <div className = 'image'>
                     <Image />
