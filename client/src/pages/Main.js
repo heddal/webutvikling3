@@ -2,8 +2,9 @@
 import React, { Component } from 'react';
 import Grid from '@material-ui/core/Grid';
 import './Main.css';
-import Card from '../components/Card'
-import Searchbox from '../components/Searchbox'
+import Card from '../components/Card';
+import Searchbox from '../components/Searchbox';
+import { Link } from 'react-router-dom';
 
 
 class Main extends Component {
@@ -21,8 +22,7 @@ class Main extends Component {
                             <h4>
                                 Where is your ultimate destination?
                             </h4>
-
-                            <Searchbox />
+                            <Searchbox/>
                         </div>
 
                     </Grid>
