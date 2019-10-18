@@ -9,6 +9,7 @@ import rootReducer from './reducers/RootReducer';
 import { Provider } from 'react-redux'
 import thunk from 'redux-thunk'
 import SearchPage from './pages/SearchPage'
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 
 
 const store = createStore(rootReducer, applyMiddleware(thunk)) ;
@@ -18,11 +19,13 @@ const store = createStore(rootReducer, applyMiddleware(thunk)) ;
 function App() {
   return (
     <Provider store = {store}>
-      
-      <SearchPage />
+      <Router>
 
+        <Route path="" component={Main} />
+        <Route path="/search" component={SearchPage} />
+        <Route path="/destination" component={Destination} />
 
-      
+      </Router>
     </Provider>
   );
 }
