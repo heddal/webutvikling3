@@ -3,7 +3,8 @@ import Searchbox from '../components/Searchbox'
 import { Grid } from '@material-ui/core';
 import Card from '../components/Card';
 import InfiniteScroll from 'react-infinite-scroller';
-import { connect } from 'react-redux'
+import { connect } from 'react-redux';
+import BackButton from '../components/BackButton'
 
 
 
@@ -53,7 +54,11 @@ class SearchPage extends Component {
 				justify='center'
 				alignItems='center'
             >
-                <div style={{width:'100vw', textAlign:'center'}}>
+              <div style={{alignItems: 'left'}}>
+                <BackButton/>
+              </div>
+
+                <div style={{width:'100%', textAlign:'center'}}>
                     <h2 style={{padding:8}}>Resultater fra "{this.props.word}"</h2>
                     <Searchbox/>
                 </div>

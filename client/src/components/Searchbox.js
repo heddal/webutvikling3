@@ -6,14 +6,9 @@ import { makeStyles } from '@material-ui/core/styles';
 import SearchIcon from '@material-ui/icons/SearchOutlined';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import TextField from '@material-ui/core/TextField';
-<<<<<<< HEAD
-import { connect } from 'react-redux';
-import { changeSearchword } from '../actions/SearchAction';
-=======
 import { connect } from 'react-redux'
 import { changeSearchword } from '../actions/SearchAction'
 import { withRouter } from 'react-router-dom';
->>>>>>> origin/master
 
 
 
