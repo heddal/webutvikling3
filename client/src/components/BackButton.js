@@ -3,6 +3,7 @@ import './BackButton.css';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import { withRouter } from "react-router-dom";
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux'
 
 
 class BackButton extends Component {
@@ -14,11 +15,10 @@ class BackButton extends Component {
     
     componentWillMount(){
         console.log(this.props.location.pathname)
-        console.log(this.props.location.pathname === "/Destination"); 
-        if (this.props.location.pathname === "/Destination"){
-            this.former = "/Search"
+        if (this.props.location.pathname === "/Search" || this.props.word.length === 0 ){
+            this.former = "/"
             console.log("former: ", this.former)
-        } else {this.former = "/"}
+        } else {this.former = "/Search"}
     };
 
     
@@ -32,4 +32,10 @@ class BackButton extends Component {
 
 }
 
-export default withRouter(BackButton);
+const mapStateToProps = (state) => { //give us accsess to the data in store
+    return {
+      word: state.search.searchWord
+    }
+  }  
+
+export default withRouter(connect(mapStateToProps)(BackButton));
