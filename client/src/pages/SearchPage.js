@@ -3,7 +3,8 @@ import Searchbox from '../components/Searchbox'
 import { Grid } from '@material-ui/core';
 import Card from '../components/Card';
 import InfiniteScroll from 'react-infinite-scroller';
-import { connect } from 'react-redux'
+import { connect } from 'react-redux';
+import DropDown from '../components/DropDown'
 
 
 
@@ -45,6 +46,11 @@ class SearchPage extends Component {
         }
 
         return ( 
+          <div>
+            <div style={{marginLeft:'36', marginTop:'36'}}>
+              knapp
+            </div>
+          
             <Grid 
                 container
                 spacing={16}
@@ -53,9 +59,17 @@ class SearchPage extends Component {
 				justify='center'
 				alignItems='center'
             >
-                <div style={{width:'100vw', textAlign:'center'}}>
+                <div style={{width:'100vw', textAlign:'center', display: 'flex', justifyContent: 'center', flexDirection: 'column'}}>
                     <h2 style={{padding:8}}>Resultater fra "{this.props.word}"</h2>
-                    <Searchbox/>
+                    <Grid container display="flex" justify="space-around" alignItems="center">
+                      <Grid item display="flex">
+                        <Searchbox/>
+                      </Grid>
+                      <Grid item>
+                        <DropDown />
+                      </Grid>
+                    </Grid>
+                    
                 </div>
                 
                 <Grid 
@@ -79,7 +93,7 @@ class SearchPage extends Component {
                     </InfiniteScroll>
                 </Grid>
             </Grid>
-
+            </div>
             
          );
     }
