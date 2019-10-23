@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import Grid from '@material-ui/core/Grid';
 import './Main.css';
-import Card from '../components/Card'
+import Cards from '../components/Cards'
 import Searchbox from '../components/Searchbox'
 
 
@@ -28,12 +28,9 @@ class Main extends Component {
                     </Grid>
 
 
-                    <Grid container justify="center" direction="row" spacing={2}>
-                        {[0, 1, 2].map(value => (
-                            <Grid item key={value} >
-                                <Card />
-                            </Grid>
-                        ))}
+                    <Grid container justify="center" spacing={2}>
+                           <Cards/> 
+                        
                     </Grid>
                     
 

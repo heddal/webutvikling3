@@ -10,8 +10,9 @@ const DataSchema = new Schema(
     name: String,
     description: String,
     continent: String,
-    temperature: String,
-    mood: String,
+    country: String,
+    source: String,
+    img: String,
     popularity: Number
   },
   { timestamps: true }
