@@ -22,7 +22,7 @@ class App extends Component {
     data: [],
     id: 0,
     name: null,
-    description: null, 
+    description: null,
     continent: null,
     temperature: null, //skal dette være noe annet enn liste i state?
     mood: null, //eller liste?
@@ -89,4 +89,3 @@ class App extends Component {
 }
 
 export default App;
-
