@@ -53,14 +53,14 @@ class App extends Component {
   // our first get method that uses our backend api to
   // fetch data from our data base
   getDataFromDb = () => {
-    fetch('http://localhost:3001/api/getData')
+    fetch('http://it2810-10.idi.ntnu.no/api/getData')
       .then((data) => data.json())
       .then((res) => this.setState({ data: res.data }));
   };
 
 
   render() {
-    const { data } = this.state;
+    const {data}  = this.state;
     return (
       <div>
         <ul>

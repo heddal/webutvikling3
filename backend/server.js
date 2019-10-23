@@ -12,7 +12,7 @@ const router = express.Router();
 
 // this is our MongoDB database
 const dbRoute =
-  'mongodb://it2810-10.idi.ntnu.no:27017/admin';
+  'mongodb://hedda:webdev2019@it2810-10.idi.ntnu.no:27017/admin';
   //'mongodb://hedda:webdev2019@it2810-10.idi.ntnu.no:27017/project3';
 
 // connects our back end code with the database
