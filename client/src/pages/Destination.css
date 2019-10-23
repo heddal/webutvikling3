@@ -3,8 +3,8 @@
     grid-template-columns: 12.5% auto 12.5%;
     grid-template-rows: 50% 50%;
     grid-template-areas: 
-    "back image ."
-    ". text .";
+    "back paper ."
+    ". paper .";
     text-align: center;
     width: 100vw;
     height: 100vh;
@@ -12,16 +12,20 @@
 
 }
 
-.image {
-    grid-area: image;
-    margin: 10px;
-    
+.papir{
+    grid-area: paper;
 }
 
-.text {
-    grid-area: text;
+.paper {
+    max-width: 65vw;
+    padding: 64px;
+    height: 75vh;
+
 }
 
 .back {
     grid-area: back;
+    justify-content: flex-start;
+    align-content: flex-start;
+    padding-top: 64px;
 }

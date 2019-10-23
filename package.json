@@ -8,9 +8,15 @@
     "@material-ui/core": "^4.5.0",
     "@material-ui/icons": "^4.4.3",
     "@material-ui/styles": "^4.5.0",
-    "concurrently": "^5.0.0",
+    "axios": "^0.19.0",
+    "body-parser": "^1.19.0",
+    "concurrently": "5.0.0",
+    "cors": "^2.8.5",
     "express": "^4.17.1",
     "mongodb": "^3.3.3",
+    "mongoose": "^5.7.6",
+    "morgan": "^1.9.1",
+    "nodemon": "^1.19.4",
     "react": "^16.10.2",
     "react-dom": "^16.10.2",
     "react-infinite-scroller": "^1.2.4",
@@ -21,15 +27,16 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js",
+    "start": "concurrently \"cd backend && nodemon server.js\" \"cd client && npm start\"",
     "server": "nodemon server.js",
-    "client": "npm start --prefix client",
-    "dev": "concurrently \"npm run server\" \"npm run client\" "
+    "client": "npm start --prefix client"
   },
   "repository": {
     "type": "git",
     "url": "git@gitlab.stud.idi.ntnu.no:IT2810-H19/teams/team-10/Prosjekt_3.git"
   },
   "author": "gruppe 10",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {},
+  "keywords": []
 }
