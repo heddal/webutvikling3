@@ -13,7 +13,7 @@ class Cards extends Component {
       description: null,
       continent: null,
       country: null,
-      source: null, 
+      source: null,
       img: null,
       popularity: 0,
       intervalIsSet: false,
@@ -42,7 +42,7 @@ class Cards extends Component {
   // our first get method that uses our backend api to
   // fetch data from our data base
   getDataFromDb = () => {
-    fetch('http://localhost:3001/api/getData')
+    fetch('http://it2810-10.idi.ntnu.no:3001/api/getData')
       .then((data) => data.json())
       .then((res) => this.setState({ data: res.data }));
   };
@@ -55,10 +55,16 @@ class Cards extends Component {
       <div className="trio">
       {data.map(dat => (
         <div className = 'card-container'>
-            <div className = 'card-item'> <img src = {dat.img} alt="alt" /> </div>
+            <div className = 'card-item'>
+              <img src = {dat.img} alt="alt" />
+            </div>
             <div className = 'card-item'> {dat.name} </div>
-            <div className = 'card-item' > <Link to="/Destination" className='link'><button> Show More </button> </Link> </div>
-        </div> 
+            <div className = 'card-item' >
+              <Link to="/Destination" className='link'>
+                <button> Show More </button>
+              </Link>
+            </div>
+        </div>
       ))}
       </div>
     );
