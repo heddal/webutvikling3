@@ -80,8 +80,9 @@ router.get('/search/:word', (req, res, next) => {
   Data.find({$or: [{'name': word}, {'country': word}]}, function (err, data){
     if (err) return res.json({ success: false, error: err });
     return res.json({ success: true, data: data });
-  })})
+})})
  
+
 
 
 // append /api for our http requests

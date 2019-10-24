@@ -43,7 +43,10 @@ const useStyles = makeStyles(theme => ({
 //If the key pressed is the enter-key, the searchword will be updated in store
   const keyPressed = prop => event => { 
     if (event.keyCode === 13) { //13 is enter
-      props.changeSearchword(values.search)
+      if (values.search === ""){
+        props.changeSearchword("all")
+      } else{
+        props.changeSearchword(values.search)}
       props.history.push('/search/'+ values.search);
     }
 
@@ -81,8 +84,9 @@ const mapDispatchToProps = (dispatch) => {
 };
 
 const mapStateToProps = (state) => { //give us accsess to the data in store
+  const filter = state.filter
   return {
-    word: state.search.searchWord
+    word: filter.searchWord
   }
 }
 

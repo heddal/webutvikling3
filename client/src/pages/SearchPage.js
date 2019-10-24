@@ -6,6 +6,8 @@ import InfiniteScroll from 'react-infinite-scroller';
 import { connect } from 'react-redux';
 import BackButton from '../components/BackButton';
 import Sorting from '../components/Sorting';
+import Button from '@material-ui/core/Button';
+import { continentFilter } from '../actions/ContinentAction';
 
 
 
@@ -28,10 +30,15 @@ class SearchPage extends Component {
       }
         
     }
+
+    handleClick(continent){
+        console.log(continent)
+        this.props.continentFilter(continent)
+
+    }
     
 
     render( ) { 
-
       return ( 
           <Grid 
             container
@@ -44,11 +51,17 @@ class SearchPage extends Component {
               <div style={{width:'100vw', textAlign:'center'}}>
                 <div style={{justifyContent: "space-between", display: 'flex', flexDirection: 'row', alignItems: 'center', paddingLeft:'3%', paddingRight: '5%'}}>
                   <BackButton/>
-                  <h2 style={{padding:8}}>Resultater fra "{this.props.word}"</h2>
+                  <h2 style={{padding:8}}> Results from "{this.props.word}"</h2>
                   <Sorting />
                 </div>
-                  
-                  <Searchbox/>
+                    <Searchbox/>
+                <div style={{textAlign: 'center'}}>
+                    <Button onClick = {this.handleClick('africa')}> Africa </Button>
+                    <Button onClick = {this.handleClick('america')}> America </Button>
+                    <Button onClick = {this.handleClick('asia')}> Asia </Button>
+                    <Button onClick = {this.handleClick('europe')}> Europe </Button>
+                    <Button onClick = {this.handleClick('oceania')}> Oceania </Button>
+                </div>
               </div>
               <FilterCards/>
               <Grid 
@@ -66,7 +79,7 @@ class SearchPage extends Component {
                   >
                       {/*items to load*/}
                       <div style={{display:'flex', flexWrap:'wrap', justifyContent:'center'}}>
-                          hei
+                           
                       </div>
                           
                       
@@ -79,8 +92,14 @@ class SearchPage extends Component {
 
 const mapStateToProps = (state) => { //give us accsess to the data in store
     return {
-      word: state.search.searchWord
+      word: state.filter.searchWord
     }
   }
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+      continentFilter: (continent) => dispatch(continentFilter(continent))
+    }
+  };
  
-export default connect(mapStateToProps)(SearchPage);
+export default connect(mapStateToProps, mapDispatchToProps)(SearchPage);

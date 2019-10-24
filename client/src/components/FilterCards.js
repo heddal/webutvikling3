@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './Card.css'
+import './Card.css';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux'
 
@@ -39,12 +39,19 @@ class FilterCards extends Component {
         // our first get method that uses our backend api to
         // fetch data from our data base
         getDataFromDb = () => {
-          console.log(this.props.word)
-          fetch('/api/search/' + this.props.word)
+          if (this.props.word === "all"){
+            fetch('/api/getData')
             .then((data) => data.json())  
             .then((res) => this.setState({ 
               data: res.data
             }));
+          } else {
+            fetch('/api/search/' + this.props.word)
+              .then((data) => data.json())  
+              .then((res) => this.setState({ 
+                data: res.data
+              }));
+            }
         };
 
     render() { 
@@ -54,7 +61,7 @@ class FilterCards extends Component {
         {data.map(dat => (
           <div className = 'card-container' key={dat.name}>
               <div className = 'card-item'> <img src = {dat.img} alt="alt" /> </div>
-              <div className = 'card-item'> {dat.name} </div>
+              <div className = 'card-item'> <p> {dat.name} </p> </div>
               <div className = 'card-item' > <Link to="/Destination" className='link'><button /*onClick={this.handleButtonClick(dat.id)}*/> Show More </button> </Link> </div>
           </div> 
         ))}
@@ -64,8 +71,9 @@ class FilterCards extends Component {
 }
 
 const mapStateToProps = (state) => { //give us accsess to the data in store
+  const filter = state.filter
   return {
-    word: state.search.searchWord
+    word: filter.searchWord
   }
 }
  
