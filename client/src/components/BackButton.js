@@ -13,12 +13,9 @@ class BackButton extends Component {
         this.former = ""
     }
     
-    componentWillMount(){
-        console.log(this.props.location.pathname)
-        console.log("NÅ ERJEG FAEN MEG LEI", this.props.filter)
-        if (this.props.location.pathname === "/search" /*|| this.props.word.length === 0 */){
+    handleClick = () => prop =>{
+        if (this.props.location.pathname === "/search"){
             this.former = "/"
-            console.log("former: ", this.former)
         } else {this.former = "/search"}
     };
 
@@ -27,7 +24,7 @@ class BackButton extends Component {
 
     render(){
         return ( 
-            <Link to={this.former} ><button className = "back-button"> <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="#999999" viewBox="0 0 18 18"><path d="M15 8.25H5.87l4.19-4.19L9 3 3 9l6 6 1.06-1.06-4.19-4.19H15v-1.5z"/></svg> </button> </Link>
+            <Link to={this.former} ><button className = "back-button" onClick={this.handleClick}> <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="#999999" viewBox="0 0 18 18"><path d="M15 8.25H5.87l4.19-4.19L9 3 3 9l6 6 1.06-1.06-4.19-4.19H15v-1.5z"/></svg> </button> </Link>
         );
     }
 
