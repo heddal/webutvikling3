@@ -26,7 +26,8 @@
     "typeface-roboto": "0.0.75"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
+    "test:watch": "jest --watch",
     "start": "concurrently \"cd backend && nodemon server.js\" \"cd client && npm start\"",
     "server": "nodemon server.js",
     "client": "npm start --prefix client"
@@ -35,8 +36,16 @@
     "type": "git",
     "url": "git@gitlab.stud.idi.ntnu.no:IT2810-H19/teams/team-10/Prosjekt_3.git"
   },
+"jest": {
+    "testEnvironment": "node",
+    "coveragePathIgnorePatterns": [
+      "/node_modules/"
+    ]
+  },
   "author": "gruppe 10",
   "license": "ISC",
-  "devDependencies": {},
+  "devDependencies": {
+    "jest": "^24.9.0"
+  },
   "keywords": []
 }
