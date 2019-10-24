@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Searchbox from '../components/Searchbox'
 import { Grid } from '@material-ui/core';
-import Cards from '../components/Cards';
+import Cards from '../components/FilterCards';
 import InfiniteScroll from 'react-infinite-scroller';
 import { connect } from 'react-redux'
 

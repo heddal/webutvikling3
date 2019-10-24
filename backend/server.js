@@ -36,11 +36,27 @@ app.use(logger('dev'));
 // this is our get method
 // this method fetches all available data in our database
 router.get('/getData', (req, res) => {
+  req.query.search
   Data.find((err, data) => {
     if (err) return res.json({ success: false, error: err });
     return res.json({ success: true, data: data });
   });
 });
+
+//eks, men brukes ikke
+router.get('/getEurope', (req, res) =>{
+  Data.find({ 'country': 'Norway' }, function (err, data){
+    if (err) return res.json({ success: false, error: err });
+    return res.json({ success: true, data: data });
+  })
+})
+
+router.get('/threeMostPopular', (req, res) => {
+  Data.find().sort({popularity: -1}).limit(3).exec(function(err, data){
+    if (err) return res.json({ success: false, error: err });
+    return res.json({ success: true, data: data });
+  })
+})
 
 // append /api for our http requests
 app.use('/api', router);
