@@ -7,6 +7,7 @@ import { connect } from 'react-redux';
 import './Destination.css'
 
 
+
 class Destination extends Component {
     state = {
         data: [],
