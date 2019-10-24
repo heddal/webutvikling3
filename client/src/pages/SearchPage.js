@@ -4,6 +4,8 @@ import { Grid } from '@material-ui/core';
 import FilterCards from '../components/FilterCards';
 import InfiniteScroll from 'react-infinite-scroller';
 import { connect } from 'react-redux';
+import MainCards from '../components/MainCards';
+import DropDown from '../components/DropDown'
 import BackButton from '../components/BackButton';
 import Sorting from '../components/Sorting';
 
@@ -19,15 +21,14 @@ class SearchPage extends Component {
     }
 
     loadMore() {
-      if(this.state.items===100){
-        
-        this.setState({ hasMoreItems: false});
-      }else{
+      if (this.state.items===100){
+          this.setState({ hasMoreItems: false});
+      } else{
           setTimeout(() => {
           this.setState({ items: this.state.items + 10});
       }, 2000);
       }
-      
+        
     }
     
 
@@ -75,10 +76,8 @@ class SearchPage extends Component {
               </Grid>
           </Grid>
 
-          
-        );
-    }
-}
+    
+      )}}
 
 const mapStateToProps = (state) => { //give us accsess to the data in store
     return {

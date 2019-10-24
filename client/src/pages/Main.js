@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import Grid from '@material-ui/core/Grid';
 import './Main.css';
-import Cards from '../components/MainCards';
+import MainCards from '../components/MainCards';
 import Searchbox from '../components/Searchbox';
 
 
@@ -28,8 +28,8 @@ class Main extends Component {
 
 
                     <Grid container justify="center" spacing={2}>
-                           <Cards/>
-
+                           <MainCards/> 
+                        
                     </Grid>
 
 
