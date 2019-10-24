@@ -3,16 +3,14 @@ import './Card.css';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux'
 import { showDestination } from '../actions/DestinationAction';
-import { red } from '@material-ui/core/colors';
+import axios from 'axios'
 
 
 class Cards extends Component {
     // initialize our state
     state = {
       data: [],
-      id: 0,
-      name: null,
-      img: null,
+      popularity: null,
       intervalIsSet: false,
     };
 
@@ -46,9 +44,25 @@ class Cards extends Component {
       }));
   };
 
+  // our update method that uses our backend api
+  // to overwrite existing data base information
+  updateDB = (idToUpdate, newPopularity) => {
+
+    axios.post('/api/updateData', {
+      id: idToUpdate,
+      update: { popularity: newPopularity },
+    });
+  };
+
+
+
   //If the key pressed is the enter-key, the searchword will be updated in store
-   handleButtonClick = denneID => props =>{ 
+   handleButtonClick = (denneID, newPopularity) => props =>{ 
     this.props.showDestination(denneID);
+    console.log(newPopularity);
+    newPopularity++;
+    this.updateDB(denneID, newPopularity);
+    console.log(newPopularity);
 
 
   };
@@ -63,7 +77,7 @@ class Cards extends Component {
         <div className = 'card-container' key={dat.name}>
             <div className = 'card-item'> <img src = {dat.img} alt="alt" /> </div>
             <div className = 'card-item'> {dat.name} </div>
-            <div className = 'card-item' > <Link to="/Destination" className='link'><button onClick={this.handleButtonClick(dat._id)}> Show More </button> </Link> </div>
+            <div className = 'card-item' > <Link to="/Destination" className='link'><button onClick={this.handleButtonClick(dat._id, dat.popularity)}> Show More </button> </Link> </div>
         </div> 
       ))}
       </div>
