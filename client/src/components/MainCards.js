@@ -42,17 +42,13 @@ class Cards extends Component {
     fetch('/api/threeMostPopular/')
       .then((data) => data.json())
       .then((res) => this.setState({ 
-        data: res.data,
-        id: res.data.id
+        data: res.data
       }));
   };
 
   //If the key pressed is the enter-key, the searchword will be updated in store
    handleButtonClick = denneID => props =>{ 
-    console.log("Yay det funka")
     this.props.showDestination(denneID);
-    console.log(denneID)
-    console.log(this.state.data)
 
 
   };
@@ -67,7 +63,7 @@ class Cards extends Component {
         <div className = 'card-container' key={dat.name}>
             <div className = 'card-item'> <img src = {dat.img} alt="alt" /> </div>
             <div className = 'card-item'> {dat.name} </div>
-            <div className = 'card-item' > <Link to="/Destination" className='link'><button onClick={this.handleButtonClick(dat.id)}> Show More </button> </Link> </div>
+            <div className = 'card-item' > <Link to="/Destination" className='link'><button onClick={this.handleButtonClick(dat._id)}> Show More </button> </Link> </div>
         </div> 
       ))}
       </div>
