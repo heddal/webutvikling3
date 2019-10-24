@@ -7,7 +7,7 @@ import { combineReducers } from 'redux'
 
 const rootReducer = combineReducers({
     search: searchReducer,
-    filters: sortReducers,
+    sort: sortReducers,
     destination: destinationReducer,
 });
 

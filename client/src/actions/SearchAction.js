@@ -3,6 +3,7 @@ export const changeSearchword = (word) => {
         console.log("SHALABAIS", word)
         dispatch({
             type: 'CHANGE_SEARCHWORD', word
+
         })
     
     }
