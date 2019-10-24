@@ -4,7 +4,8 @@ import { Grid } from '@material-ui/core';
 import FilterCards from '../components/FilterCards';
 import InfiniteScroll from 'react-infinite-scroller';
 import { connect } from 'react-redux';
-import BackButton from '../components/BackButton'
+import BackButton from '../components/BackButton';
+import Sorting from '../components/Sorting';
 
 
 
@@ -42,10 +43,10 @@ class SearchPage extends Component {
             alignItems='center'
             >
               <div style={{width:'100vw', textAlign:'center'}}>
-                <div style={{justifyContent: "space-between", display: 'flex', flexDirection: 'row', alignItems: 'center', paddingLeft:'16px', paddingRight: '16px'}}>
+                <div style={{justifyContent: "space-between", display: 'flex', flexDirection: 'row', alignItems: 'center', paddingLeft:'3%', paddingRight: '5%'}}>
                   <BackButton/>
                   <h2 style={{padding:8}}>Resultater fra "{this.props.word}"</h2>
-                  <h2> </h2>
+                  <Sorting />
                 </div>
                   
                   <Searchbox/>
