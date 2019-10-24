@@ -5,6 +5,7 @@ import './Destination.css';
 import { Grid, Paper } from '@material-ui/core';
 import { connect } from 'react-redux';
 import './Destination.css'
+import BackButton from '../components/BackButton';
 
 
 
@@ -51,7 +52,7 @@ class Destination extends Component {
         return(
             <div className = 'container-destination'>
                 <div className = 'back'>
-                    hei
+                    <BackButton/>
                 </div>
                 <Grid
                     container

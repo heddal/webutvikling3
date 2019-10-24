@@ -42,7 +42,12 @@ class SearchPage extends Component {
             alignItems='center'
             >
               <div style={{width:'100vw', textAlign:'center'}}>
+                <div style={{justifyContent: "space-between", display: 'flex', flexDirection: 'row', alignItems: 'center', paddingLeft:'16px', paddingRight: '16px'}}>
+                  <BackButton/>
                   <h2 style={{padding:8}}>Resultater fra "{this.props.word}"</h2>
+                  <h2> </h2>
+                </div>
+                  
                   <Searchbox/>
               </div>
               <FilterCards/>
