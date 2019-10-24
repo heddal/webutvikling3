@@ -2,9 +2,11 @@
 
 import React, { Component } from 'react';
 import Image from '../components/Image';
+import BackButton from '../components/BackButton';
 import Infotext from '../components/Infotext'
 import './Destination.css'
 import { Grid, Paper } from '@material-ui/core';
+
 
 
 class Destination extends Component {

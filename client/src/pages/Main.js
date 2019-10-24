@@ -2,8 +2,8 @@
 import React, { Component } from 'react';
 import Grid from '@material-ui/core/Grid';
 import './Main.css';
-import Cards from '../components/MainCards'
-import Searchbox from '../components/Searchbox'
+import Card from '../components/Card';
+import Searchbox from '../components/Searchbox';
 
 
 class Main extends Component {
@@ -21,8 +21,7 @@ class Main extends Component {
                             <h4>
                                 Where is your ultimate destination?
                             </h4>
-
-                            <Searchbox />
+                            <Searchbox/>
                         </div>
 
                     </Grid>
