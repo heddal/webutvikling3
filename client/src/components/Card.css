@@ -33,6 +33,10 @@
     align-self: center;
 }
 
+.card-item p{
+    text-transform: capitalize;
+}
+
 .card-item button {
     display: block;
     width: 75%;
