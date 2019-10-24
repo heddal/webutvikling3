@@ -42,17 +42,28 @@ class FilterCards extends Component {
           if (this.props.word === "all"){
             fetch('/api/getData')
             .then((data) => data.json())  
-            .then((res) => this.setState({ 
-              data: res.data
-            }));
+            .then((res) => this.sortData(res.data))            
           } else {
             fetch('/api/search/' + this.props.word)
               .then((data) => data.json())  
-              .then((res) => this.setState({ 
-                data: res.data
-              }));
+              .then((res) => this.sortData(res.data));
             }
         };
+
+        sortData = (data) => {
+          if(this.props.sortType){
+            if(this.props.sortType === 'A-Z'){
+              const sorted = data.sort((a,b) => (a.name > b.name) ? 1:-1)
+              this.setState({data: sorted});
+            }
+            if(this.props.sortType === 'Popularity'){
+              const sorted = data.sort((a,b) => (a.popularity > b.popularity) ? -1:1)
+              this.setState({data: sorted});
+            }
+          }
+          else{this.setState({data: data})}
+
+        }
 
     render() { 
       const {data}  = this.state;
@@ -72,8 +83,10 @@ class FilterCards extends Component {
 
 const mapStateToProps = (state) => { //give us accsess to the data in store
   const filter = state.filter
+  const sort = state.sort
   return {
-    word: filter.searchWord
+    word: filter.searchWord,
+    sortType: sort.sortType
   }
 }
  
