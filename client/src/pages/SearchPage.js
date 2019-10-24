@@ -4,8 +4,6 @@ import { Grid } from '@material-ui/core';
 import FilterCards from '../components/FilterCards';
 import InfiniteScroll from 'react-infinite-scroller';
 import { connect } from 'react-redux';
-import MainCards from '../components/MainCards';
-import DropDown from '../components/DropDown'
 import BackButton from '../components/BackButton';
 import Sorting from '../components/Sorting';
 

@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import './Card.css'
-import bilde from './bilde.jpg'
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux'
-import { showDestination } from '../actions/DestinationAction';
 
 class FilterCards extends Component {
         // initialize our state
@@ -44,15 +42,6 @@ class FilterCards extends Component {
           console.log(this.props.word)
           fetch('/api/search/' + this.props.word)
             .then((data) => data.json())  
-            .then((res) => this.setState({ 
-              data: res.data
-            }));
-            console.log(this.state.data)
-        };
-
-        getDataFromDb = () => {
-          fetch('/api/getData')
-            .then((data) => data.json())
             .then((res) => this.setState({ 
               data: res.data
             }));
