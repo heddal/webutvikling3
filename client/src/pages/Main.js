@@ -31,7 +31,7 @@ class Main extends Component {
                            <MainCards/> 
                         
                     </Grid>
-                    
+
 
                 </Grid>
             </div>

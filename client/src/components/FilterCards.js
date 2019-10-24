@@ -50,6 +50,13 @@ class FilterCards extends Component {
             console.log(this.state.data)
         };
 
+        getDataFromDb = () => {
+          fetch('/api/getData')
+            .then((data) => data.json())
+            .then((res) => this.setState({ 
+              data: res.data
+            }));
+        };
 
     render() { 
       const {data}  = this.state;

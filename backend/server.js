@@ -26,15 +26,32 @@ db.once('open', () => console.log('connected to the database'));
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
 
-//trenger kanskje ikke denne i det hele tatt?
-// (optional) only made for logging and
-// bodyParser, parses the request body to be a readable json format
+// made for logging and bodyParser, parses the request body to be a readable json format
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(logger('dev'));
 
-// this is our get method
-// this method fetches all available data in our database
+
+// this is our update method
+// this method overwrites existing data in our database
+router.post('/updateData', (req, res) => {
+  const { id, update } = req.body;
+  Data.findByIdAndUpdate(id, update, (err) => {
+    if (err) return res.json({ success: false, error: err });
+    return res.json({ success: true });
+  });
+});
+
+
+// this is our get method to get data by id for destination page
+router.get('/getDataFrom/:id', (req, res, next) => {
+  var destinatoinID = req.params.id;
+  Data.findById(destinatoinID, (err, data) => {
+    if (err) return res.json({ success: false, error: err });
+    return res.json({ success: true, data: data });
+  });
+});
+
 router.get('/getData', (req, res) => {
   Data.find((err, data) => {
     if (err) return res.json({ success: false, error: err });
@@ -50,6 +67,7 @@ router.get('/getEurope', (req, res) =>{
   })
 })
 
+//get the three most popular destinations to show at the main page
 router.get('/threeMostPopular', (req, res) => {
   Data.find().sort({popularity: -1}).limit(3).exec(function(err, data){
     if (err) return res.json({ success: false, error: err });

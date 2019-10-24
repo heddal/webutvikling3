@@ -5,7 +5,9 @@ import FilterCards from '../components/FilterCards';
 import InfiniteScroll from 'react-infinite-scroller';
 import { connect } from 'react-redux';
 import MainCards from '../components/MainCards';
-//import DropDown from '../components/DropDown'
+import DropDown from '../components/DropDown'
+import BackButton from '../components/BackButton';
+import Sorting from '../components/Sorting';
 
 
 
@@ -28,55 +30,54 @@ class SearchPage extends Component {
       }
         
     }
+    
+
+    render( ) { 
+
+      return ( 
+          <Grid 
+            container
+            spacing={8}
+            style={{padding: 20, width: '100%', marginTop:36, marginBottom:36}}
+            direction='column'
+            justify='center'
+            alignItems='center'
+            >
+              <div style={{width:'100vw', textAlign:'center'}}>
+                <div style={{justifyContent: "space-between", display: 'flex', flexDirection: 'row', alignItems: 'center', paddingLeft:'3%', paddingRight: '5%'}}>
+                  <BackButton/>
+                  <h2 style={{padding:8}}>Resultater fra "{this.props.word}"</h2>
+                  <Sorting />
+                </div>
+                  
+                  <Searchbox/>
+              </div>
+              <FilterCards/>
+              <Grid 
+              container
+              direction='row'
+              wrap='wrap'
+              justify='center'
+              style={{width: '100%',  }}>
+                  
+                  <InfiniteScroll
+                      loadMore={this.loadMore.bind(this)}
+                      hasMore={this.state.hasMoreItems}
+                      loader={<div className="loader" key={0}>Loading ...</div>}
+                      useWindow = {false}
+                  >
+                      {/*items to load*/}
+                      <div style={{display:'flex', flexWrap:'wrap', justifyContent:'center'}}>
+                          hei
+                      </div>
+                          
+                      
+                  </InfiniteScroll>
+              </Grid>
+          </Grid>
 
     
-    render( ) {
-        return ( 
-          <div>
-            <div style={{marginLeft:'36', marginTop:'36'}}>
-              knapp
-            </div>
-          
-            <Grid 
-                container
-                spacing={8}
-				style={{padding: 20, width: '100%', marginTop:36, marginBottom:36}}
-				direction='column'
-				justify='center'
-				alignItems='center'
-            >
-                <div style={{width:'100vw', textAlign:'center', display: 'flex', justifyContent: 'center', flexDirection: 'column'}}>
-                    <h2 style={{padding:8}}>Resultater fra "{this.props.word}"</h2>
-                    <Searchbox/>
-                   
-                </div>
-                <FilterCards />
-                <Grid 
-                container
-                direction='row'
-                wrap='wrap'
-                justify='center'
-                style={{width: '100%',  }}>
-                    <InfiniteScroll
-                        loadMore={this.loadMore.bind(this)}
-                        hasMore={this.state.hasMoreItems}
-                        loader={<div className="loader" key={0}>Loading ...</div>}
-                        useWindow = {false}
-                    >
-                        {/*items to load
-                        <div style={{display:'flex', flexWrap:'wrap', justifyContent:'center'}}>
-                
-                        </div>*/}
-                            
-                        
-                    </InfiniteScroll>
-                </Grid>
-            </Grid>
-            </div>
-            
-         );
-    }
-}
+      )}}
 
 const mapStateToProps = (state) => { //give us accsess to the data in store
     return {
