@@ -15,7 +15,8 @@ class BackButton extends Component {
     
     componentWillMount(){
         console.log(this.props.location.pathname)
-        if (this.props.location.pathname === "/search" || this.props.word.length === 0 ){
+        console.log("NÅ ERJEG FAEN MEG LEI", this.props.filter)
+        if (this.props.location.pathname === "/search" /*|| this.props.word.length === 0 */){
             this.former = "/"
             console.log("former: ", this.former)
         } else {this.former = "/search"}
@@ -33,8 +34,9 @@ class BackButton extends Component {
 }
 
 const mapStateToProps = (state) => { //give us accsess to the data in store
+    const filter = state
     return {
-      word: state.search.searchWord
+      word: filter
     }
   }  
 

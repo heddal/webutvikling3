@@ -1,13 +1,13 @@
-import searchReducer from './SeachReducer'
 import sortReducers from './SortReducers'
 import destinationReducer from './DestinationReducer'
 import { combineReducers } from 'redux'
+import filterReducer from './FilterReducer';
 
 
 
 const rootReducer = combineReducers({
-    search: searchReducer,
-    filters: sortReducers,
+    filter: filterReducer,
+    sort: sortReducers,
     destination: destinationReducer,
 });
 
