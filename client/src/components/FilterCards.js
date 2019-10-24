@@ -41,11 +41,13 @@ class FilterCards extends Component {
         // our first get method that uses our backend api to
         // fetch data from our data base
         getDataFromDb = () => {
-          fetch('/api/getData/')
-            .then((data) => data.json())
+          console.log(this.props.word)
+          fetch('/api/search/' + this.props.word)
+            .then((data) => data.json())  
             .then((res) => this.setState({ 
               data: res.data
             }));
+            console.log(this.state.data)
         };
 
 
@@ -64,5 +66,11 @@ class FilterCards extends Component {
       ) ;
     }
 }
+
+const mapStateToProps = (state) => { //give us accsess to the data in store
+  return {
+    word: state.search.searchWord
+  }
+}
  
-export default FilterCards;
+export default connect(mapStateToProps)(FilterCards);

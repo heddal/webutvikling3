@@ -36,7 +36,7 @@
     "type": "git",
     "url": "git@gitlab.stud.idi.ntnu.no:IT2810-H19/teams/team-10/Prosjekt_3.git"
   },
-"jest": {
+  "jest": {
     "testEnvironment": "node",
     "coveragePathIgnorePatterns": [
       "/node_modules/"

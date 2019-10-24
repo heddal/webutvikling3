@@ -18,34 +18,19 @@ class SearchPage extends Component {
         };
     }
 
-    showItems() {
-        var items = [];
-        for (var i = 0; i < this.state.items; i++) {
-          items.push(<MainCards/>);
-        }
-        return items;
-      }
-
-      loadMore() {
-        if(this.state.items===100){
-          
+    loadMore() {
+      if (this.state.items===100){
           this.setState({ hasMoreItems: false});
-        }else{
-            setTimeout(() => {
-            this.setState({ items: this.state.items + 10});
-        }, 2000);
-        }
-        
+      } else{
+          setTimeout(() => {
+          this.setState({ items: this.state.items + 10});
+      }, 2000);
       }
+        
+    }
+
     
-
-    render( ) { 
-
-        var items = [];
-        for (var i = 0; i < this.state.items; i++) {
-          items.push(<MainCards/>);
-        }
-
+    render( ) {
         return ( 
           <div>
             <div style={{marginLeft:'36', marginTop:'36'}}>
@@ -54,7 +39,7 @@ class SearchPage extends Component {
           
             <Grid 
                 container
-                spacing={16}
+                spacing={8}
 				style={{padding: 20, width: '100%', marginTop:36, marginBottom:36}}
 				direction='column'
 				justify='center'
@@ -62,13 +47,10 @@ class SearchPage extends Component {
             >
                 <div style={{width:'100vw', textAlign:'center', display: 'flex', justifyContent: 'center', flexDirection: 'column'}}>
                     <h2 style={{padding:8}}>Resultater fra "{this.props.word}"</h2>
-                    <Grid container display="flex" justify="space-around" alignItems="center">
-                      <Grid item display="flex">
-                        <Searchbox/>
-                      </Grid>
-                    </Grid>
+                    <Searchbox/>
+                   
                 </div>
-                
+                <FilterCards />
                 <Grid 
                 container
                 direction='row'
@@ -78,13 +60,13 @@ class SearchPage extends Component {
                     <InfiniteScroll
                         loadMore={this.loadMore.bind(this)}
                         hasMore={this.state.hasMoreItems}
-                        loader={<div className="loader" key={10}>Loading ...</div>}
+                        loader={<div className="loader" key={0}>Loading ...</div>}
                         useWindow = {false}
                     >
-                        {/*items to load*/}
+                        {/*items to load
                         <div style={{display:'flex', flexWrap:'wrap', justifyContent:'center'}}>
-                            {items}
-                        </div>
+                
+                        </div>*/}
                             
                         
                     </InfiniteScroll>

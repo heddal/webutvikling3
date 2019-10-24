@@ -44,7 +44,7 @@ const useStyles = makeStyles(theme => ({
   const keyPressed = prop => event => { 
     if (event.keyCode === 13) { //13 is enter
       props.changeSearchword(values.search)
-      props.history.push('/search');
+      props.history.push('/search/'+ values.search);
     }
 
   };
