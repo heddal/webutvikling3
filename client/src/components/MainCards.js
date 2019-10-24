@@ -59,10 +59,8 @@ class Cards extends Component {
   //If the key pressed is the enter-key, the searchword will be updated in store
    handleButtonClick = (denneID, newPopularity) => props =>{ 
     this.props.showDestination(denneID);
-    console.log(newPopularity);
     newPopularity++;
     this.updateDB(denneID, newPopularity);
-    console.log(newPopularity);
 
 
   };
