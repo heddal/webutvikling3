@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import Grid from '@material-ui/core/Grid';
 import './Main.css';
-import Cards from '../components/Cards'
+import Cards from '../components/MainCards'
 import Searchbox from '../components/Searchbox'
 
 
