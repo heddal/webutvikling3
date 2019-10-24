@@ -9,6 +9,14 @@ import { Grid, Paper } from '@material-ui/core';
 
 class Destination extends Component {
     state = {
+        data: [],
+        id: 0,
+        name: null,
+        country: null,
+        continent: null,
+        desription: null,
+        source: null,
+        img: null
     }
 
     render() {
@@ -19,7 +27,7 @@ class Destination extends Component {
                 </div>
                 <Grid
                     container
-                    spacing={16}
+                    spacing={8}
                     style={{padding: 20}}
 				    direction='row'
 				    justify='center'

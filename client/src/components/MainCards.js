@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import './Card.css';
-import bilde from './bilde.jpg';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
+import { connect } from 'react-redux'
+import { showDestination } from '../actions/DestinationAction';
+import { red } from '@material-ui/core/colors';
 
 
 class Cards extends Component {
@@ -10,12 +12,7 @@ class Cards extends Component {
       data: [],
       id: 0,
       name: null,
-      description: null,
-      continent: null,
-      country: null,
-      source: null, 
       img: null,
-      popularity: 0,
       intervalIsSet: false,
     };
 
@@ -42,9 +39,22 @@ class Cards extends Component {
   // our first get method that uses our backend api to
   // fetch data from our data base
   getDataFromDb = () => {
-    fetch('http://localhost:3001/api/getData')
+    fetch('/api/threeMostPopular/')
       .then((data) => data.json())
-      .then((res) => this.setState({ data: res.data }));
+      .then((res) => this.setState({ 
+        data: res.data,
+        id: res.data.id
+      }));
+  };
+
+  //If the key pressed is the enter-key, the searchword will be updated in store
+   handleButtonClick = denneID => props =>{ 
+    console.log("Yay det funka")
+    this.props.showDestination(denneID);
+    console.log(denneID)
+    console.log(this.state.data)
+
+
   };
 
 
@@ -54,10 +64,10 @@ class Cards extends Component {
     return (
       <div className="trio">
       {data.map(dat => (
-        <div className = 'card-container'>
+        <div className = 'card-container' key={dat.name}>
             <div className = 'card-item'> <img src = {dat.img} alt="alt" /> </div>
             <div className = 'card-item'> {dat.name} </div>
-            <div className = 'card-item' > <Link to="/Destination" className='link'><button> Show More </button> </Link> </div>
+            <div className = 'card-item' > <Link to="/Destination" className='link'><button onClick={this.handleButtonClick(dat.id)}> Show More </button> </Link> </div>
         </div> 
       ))}
       </div>
@@ -67,4 +77,17 @@ class Cards extends Component {
 }
 
 
-export default Cards;
+const mapDispatchToProps = (dispatch) => {
+  return {
+    showDestination: (destinationID) => dispatch(showDestination(destinationID))
+  }
+};
+
+const mapStateToProps = (state) => { //give us accsess to the data in store
+  return {
+    destinationID: state.destination.destinationID
+  }
+}
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(Cards);
