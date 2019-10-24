@@ -26,6 +26,7 @@ const useStyles = makeStyles(theme => ({
   },
   textField: {
     flexBasis: 500,
+    backgroundColor: 'white',
   },
 }));
 

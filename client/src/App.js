@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import Main from './pages/Main';
 import './App.css';
 import { createStore, applyMiddleware } from 'redux';
@@ -13,20 +13,22 @@ import Destination from './pages/Destination'
 const store = createStore(rootReducer, applyMiddleware(thunk)) ;
 
 
+class App extends Component {
 
-function App() {
-  return (
-    <Provider store = {store}>
-      <Router>
+  render() {
+    
+    return (
+      <Provider store = {store}>
+          <Router>
 
-        <Route path="/" exact component={Main} />
-        <Route path="/search" component={SearchPage} />
-        <Route path="/destination" component={Destination} />
+            <Route path="/" exact component={Main} />
+            <Route path="/search" component={SearchPage} />
+            <Route path="/destination" component={Destination} />
 
-      </Router>
-    </Provider>
-  );
+          </Router>
+      </Provider>
+    );
+  }
 }
 
 export default App;
-
