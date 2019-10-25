@@ -13,10 +13,13 @@ class BackButton extends Component {
         this.former = ""
     }
     
+    //backarrow to go back to right path considering where you are
     handleClick = () => prop =>{
+        console.log(this.props.location.pathname);
         if (this.props.location.pathname === "/search"){
             this.former = "/"
-        } else {this.former = "/search"}
+        } 
+        else {this.former = "/search"}
     };
 
     
