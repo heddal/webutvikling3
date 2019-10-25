@@ -6,9 +6,9 @@ import InfiniteScroll from 'react-infinite-scroller';
 import { connect } from 'react-redux';
 import BackButton from '../components/BackButton';
 import Sorting from '../components/Sorting';
-import Button from '@material-ui/core/Button';
 import { continentFilter } from '../actions/ContinentAction';
 import { changeSearchword } from '../actions/SearchAction';
+import './Button.css'
 
 
 
@@ -17,7 +17,8 @@ class SearchPage extends Component {
         super(props)
         this.state ={
             items: 10,
-            hasMoreItems: true
+            hasMoreItems: true,
+            activeButton: 'all'
         };
         this.getContinent = this.getContinent.bind(this)
     }
@@ -40,8 +41,15 @@ class SearchPage extends Component {
         
     }
 
-    getContinent(continent){
-        this.props.continentFilter(continent)
+    getContinent(continent, e){
+        this.props.continentFilter(continent);
+        const activebutton = this.state.activeButton
+        if (activebutton !== e.target.id){
+          document.getElementById(activebutton).className = ''
+          document.getElementById(e.target.id).className = 'active'
+          this.setState({activeButton: e.target.id});
+        }
+        
     }
     
 
@@ -62,13 +70,13 @@ class SearchPage extends Component {
                   <Sorting />
                 </div>
                   <Searchbox/>
-                <div style={{textAlign: 'center'}}>
-                  <button onClick = {(e) => this.getContinent('all')}> All </button>
-                  <button onClick = {(e) => this.getContinent('Africa')}> Africa </button>
-                  <button onClick = {(e) => this.getContinent('America')}> America </button>
-                  <button onClick = {(e) => this.getContinent('Asia')}> Asia </button>
-                  <button onClick = {(e) => this.getContinent('Europe')}> Europe </button>
-                  <button onClick = {(e) => this.getContinent('Oceania')}> Oceania </button>
+                <div className = "button-group" style={{textAlign: 'center', fontFamily: 'Arial, Helvetica, sans-serif', borderRadius: '10px'}}>
+                  <button className = 'active' id = 'all'  onClick = {(e) => this.getContinent('all', e)}> All </button>
+                  <button id = 'africa' onClick = {(e) => this.getContinent('Africa', e)}> Africa </button>
+                  <button id = 'america' onClick = {(e) => this.getContinent('America', e)}> America </button>
+                  <button id = 'asia' onClick = {(e) => this.getContinent('Asia', e)}> Asia </button>
+                  <button id = 'europe' onClick = {(e) => this.getContinent('Europe', e)}> Europe </button>
+                  <button id = 'oceania' onClick = {(e) => this.getContinent('Oceania', e)}> Oceania </button>
                 </div>
               </div>
               <FilterCards/>
