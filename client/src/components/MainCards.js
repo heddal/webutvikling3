@@ -48,7 +48,6 @@ class Cards extends Component {
       .then((res) => this.setState({
         data: res.data
       }));
-      console.log(this.state.data);
   };
 
   // our update method that uses our backend api
