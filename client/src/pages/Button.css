@@ -1,0 +1,26 @@
+.button-group button{
+    text-align: center;
+    font-family: inherit;
+    text-transform: capitalize;
+    border: none;
+    padding: 10px 20px;
+    background-color: rgba(63, 81, 181, 0.5);
+}
+
+.button-group button:hover {
+    background-color: #3f51b5;
+}
+
+.button-group button:first-child{
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+}
+
+.button-group button:last-child{
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px; 
+}
+
+button.active  {
+    background-color: #3f51b5;
+}
