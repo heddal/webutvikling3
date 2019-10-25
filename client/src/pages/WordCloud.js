@@ -47,11 +47,12 @@ renameKeys(data) { // list of elements [{name: Rome, popularity: 2}, {name: Pari
 
   render(){
     return(
-      <div style={{justifyContent:"center", display:"flex"}}>
+      <div style={{justifyContent:"center", display:"flex", height:"100vh", alignItems:"center"}}>
         <WordCloud
+          
           data={this.state.data}
           font='Impact'
-          fontSizeMapper={fontSizeMapper}
+          //fontSizeMapper={fontSizeMapper}
           rotate={rotate}
         />
       </div>
