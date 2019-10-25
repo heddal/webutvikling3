@@ -12,7 +12,7 @@ class BackButton extends Component {
     //backarrow to go back to right path considering where you are
     componentWillMount(){
         const path = this.props.location.pathname
-        if (path.includes("/search") || path === '/wordcloud' || this.props.word.length === 0 ){
+        if (path.includes("/search") || path === '/wordcloud' || this.props.word.length === 0 ){ // last one if we come directly from mainpage
             this.former = "/"
         } else { 
             this.former = "/search"

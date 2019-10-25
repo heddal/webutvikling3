@@ -23,7 +23,7 @@ class SearchPage extends Component {
     }
 
   componentDidMount() {
-    if (this.props.word.length === 0){
+    if (this.props.word.length === 0){ //if there are no searchword, show all cities
       this.props.changeSearchword("all")
     }
     this.props.continentFilter("all")
@@ -33,7 +33,7 @@ class SearchPage extends Component {
       this.props.continentFilter(continent)
   };
 
-    getContinent(continent, e){
+    getContinent(continent, e){ //changes continent for filtering
         this.props.continentFilter(continent);
         const activebutton = this.state.activeButton
         if (activebutton !== e.target.id){

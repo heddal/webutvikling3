@@ -44,7 +44,7 @@ const useStyles = makeStyles(theme => ({
   const keyPressed = prop => event => { 
     if (event.keyCode === 13) { //13 is enter
       if (values.search === ""){
-        props.changeSearchword("all")
+        props.changeSearchword("all") //if the key is pressed without a searchword, then we show all the places
       } else{
         props.changeSearchword(values.search)}
       props.history.push('/search/'+ values.search);

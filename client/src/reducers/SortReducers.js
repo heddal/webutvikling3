@@ -1,4 +1,4 @@
-// filter reducers for the locations
+// sort reducers for the locations
 
 const sortReducersDefaultState = {
     sortType: ""
