@@ -20,12 +20,6 @@ mongoose.connect(dbRoute, { useNewUrlParser: true });
 
 let db = mongoose.connection;
 
-app.use(express.static(path.join(__dirname, 'build')));
--app.get('/', function (req, res) {
-+app.get('/*', function (req, res) {
-   res.sendFile(path.join(__dirname, 'build', 'index.html'));
- })});
-
 db.once('open', () => console.log('connected to the database'));
 
 // checks if connection with the database is successful
@@ -36,6 +30,16 @@ db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(logger('dev'));
+
+{/*// Serve static assets if in production
+if (process.env.NODE_ENV === 'production') {
+  // Set static folder
+  app.use(express.static('client/build'));
+
+  app.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+  });
+}*/}
 
 
 // this is our update method

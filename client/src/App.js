@@ -19,7 +19,7 @@ class App extends Component {
   render() {
     return (
       <Provider store = {store}>
-          <Router>
+          <Router >
             <Route path="/" exact component={Main} />
             <Route path="/wordcloud" component={WordCloud} />
             <Route path="/search" component={SearchPage} />
