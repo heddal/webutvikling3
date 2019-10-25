@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import Searchbox from '../components/Searchbox'
 import { Grid } from '@material-ui/core';
 import FilterCards from '../components/FilterCards';
-import InfiniteScroll from 'react-infinite-scroller';
 import { connect } from 'react-redux';
 import BackButton from '../components/BackButton';
 import Sorting from '../components/Sorting';
@@ -23,23 +22,17 @@ class SearchPage extends Component {
         this.getContinent = this.getContinent.bind(this)
     }
 
-    componentDidMount() {
-      if (this.props.word.length === 0){
-        this.props.changeSearchword("all")
-      }
-      this.props.continentFilter("all")
+  componentDidMount() {
+    if (this.props.word.length === 0){
+      this.props.changeSearchword("all")
     }
+    this.props.continentFilter("all")
+  }
 
-    loadMore() {
-      if (this.state.items===100){
-          this.setState({ hasMoreItems: false});
-      } else{
-          setTimeout(() => {
-          this.setState({ items: this.state.items + 10});
-      }, 2000);
-      }
-        
-    }
+  handleClick = (continent) => prop =>{
+      console.log(continent)
+      this.props.continentFilter(continent)
+  };
 
     getContinent(continent, e){
         this.props.continentFilter(continent);
@@ -79,32 +72,11 @@ class SearchPage extends Component {
                   <button id = 'oceania' onClick = {(e) => this.getContinent('Oceania', e)}> Oceania </button>
                 </div>
               </div>
-              <FilterCards/>
-              <Grid 
-              container
-              direction='row'
-              wrap='wrap'
-              justify='center'
-              style={{width: '100%',  }}>
-                  
-                  <InfiniteScroll
-                      loadMore={this.loadMore.bind(this)}
-                      hasMore={this.state.hasMoreItems}
-                      loader={<div className="loader" key={0}>Loading ...</div>}
-                      useWindow = {false}
-                  >
-                      {/*items to load*/}
-                      <div style={{display:'flex', flexWrap:'wrap', justifyContent:'center'}}>
-                           
-                      </div>
-                          
-                      
-                  </InfiniteScroll>
-              </Grid>
-          </Grid>
+          <FilterCards/>
+        </Grid>
 
-    
-      )}}
+
+  )}}
 
 const mapStateToProps = (state) => { //give us accsess to the data in store
     const filter = state.filter
