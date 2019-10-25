@@ -41,17 +41,38 @@ class FilterCards extends Component {
         // fetch data from our data base
         getDataFromDb = () => {
           if (this.props.word === "all"){
-            fetch('/api/getData')
-            .then((data) => data.json())  
-            .then((res) => this.setState({ 
-              data: res.data
-            }));
-          } else {
+            if (this.props.continent === "all"){
+              console.log("IKKE HER :(((")
+              fetch('/api/getData')
+              .then((data) => data.json())  
+              .then((res) => 
+              this.setState({ 
+                data: res.data
+              }));
+            } else {
+              fetch('/api/search/' + this.props.continent)
+              .then((data) => data.json())  
+              .then((res) => 
+              this.setState({ 
+                data: res.data
+              }));
+            }
+            
+          } else if (this.props.continent === 'all') {
+            console.log("INN HER?")
             fetch('/api/search/' + this.props.word)
               .then((data) => data.json())  
               .then((res) => this.setState({ 
                 data: res.data
               }));
+            } else {
+              console.log("INNNE I FILTER:", this.props.continent, ",", this.props.word )
+              fetch('/api/search/' + this.props.continent + '/' + this.props.word )
+              .then((data) => data.json())  
+              .then((res) => this.setState({ 
+                data: res.data
+              }));
+              console.log(this.state.data)
             }
         };
 
@@ -74,7 +95,8 @@ class FilterCards extends Component {
 const mapStateToProps = (state) => { //give us accsess to the data in store
   const filter = state.filter
   return {
-    word: filter.searchWord
+    word: filter.searchWord,
+    continent: filter.continent
   }
 }
  

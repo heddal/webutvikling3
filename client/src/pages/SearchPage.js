@@ -8,6 +8,7 @@ import BackButton from '../components/BackButton';
 import Sorting from '../components/Sorting';
 import Button from '@material-ui/core/Button';
 import { continentFilter } from '../actions/ContinentAction';
+import { changeSearchword } from '../actions/SearchAction';
 
 
 
@@ -18,6 +19,14 @@ class SearchPage extends Component {
             items: 10,
             hasMoreItems: true
         };
+        this.getContinent = this.getContinent.bind(this)
+    }
+
+    componentDidMount() {
+      if (this.props.word.length === 0){
+        this.props.changeSearchword("all")
+      }
+      this.props.continentFilter("all")
     }
 
     loadMore() {
@@ -31,10 +40,8 @@ class SearchPage extends Component {
         
     }
 
-    handleClick(continent){
-        console.log(continent)
+    getContinent(continent){
         this.props.continentFilter(continent)
-
     }
     
 
@@ -54,13 +61,14 @@ class SearchPage extends Component {
                   <h2 style={{padding:8}}> Results from "{this.props.word}"</h2>
                   <Sorting />
                 </div>
-                    <Searchbox/>
+                  <Searchbox/>
                 <div style={{textAlign: 'center'}}>
-                    <Button onClick = {this.handleClick('africa')}> Africa </Button>
-                    <Button onClick = {this.handleClick('america')}> America </Button>
-                    <Button onClick = {this.handleClick('asia')}> Asia </Button>
-                    <Button onClick = {this.handleClick('europe')}> Europe </Button>
-                    <Button onClick = {this.handleClick('oceania')}> Oceania </Button>
+                  <button onClick = {(e) => this.getContinent('all')}> All </button>
+                  <button onClick = {(e) => this.getContinent('Africa')}> Africa </button>
+                  <button onClick = {(e) => this.getContinent('America')}> America </button>
+                  <button onClick = {(e) => this.getContinent('Asia')}> Asia </button>
+                  <button onClick = {(e) => this.getContinent('Europe')}> Europe </button>
+                  <button onClick = {(e) => this.getContinent('Oceania')}> Oceania </button>
                 </div>
               </div>
               <FilterCards/>
@@ -91,14 +99,16 @@ class SearchPage extends Component {
       )}}
 
 const mapStateToProps = (state) => { //give us accsess to the data in store
+    const filter = state.filter
     return {
-      word: state.filter.searchWord
+      word: filter.searchWord
     }
   }
 
 const mapDispatchToProps = (dispatch) => {
     return {
-      continentFilter: (continent) => dispatch(continentFilter(continent))
+      continentFilter: (continent) => dispatch(continentFilter(continent)),
+      changeSearchword: (word) => dispatch(changeSearchword(word))
     }
   };
  
