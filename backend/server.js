@@ -59,13 +59,6 @@ router.get('/getData', (req, res) => {
   });
 });
 
-//eks, men brukes ikke
-router.get('/getEurope', (req, res) =>{
-  Data.find({ 'country': 'Norway' }, function (err, data){
-    if (err) return res.json({ success: false, error: err });
-    return res.json({ success: true, data: data });
-  })
-})
 
 //get the three most popular destinations to show at the main page
 router.get('/threeMostPopular', (req, res) => {
@@ -83,7 +76,6 @@ router.get('/search/:word', (req, res, next) => {
   })})
 
   router.get('/search/:continent/:word', (req, res) => {
-    console.log(req.params)
     const continent = req.params.continent.toLowerCase()
     const word = req.params.word.toLowerCase()
     Data.find({ $and: [ {$or: [{'name': word}, {'country': word}]}, {'continent': continent} ]} , function (err, data){

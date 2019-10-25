@@ -30,7 +30,6 @@ class SearchPage extends Component {
   }
 
   handleClick = (continent) => prop =>{
-      console.log(continent)
       this.props.continentFilter(continent)
   };
 
