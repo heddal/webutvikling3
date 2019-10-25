@@ -71,6 +71,7 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/tr
 $ npm install redux
 $ npm install react-redux
 $ npm install redux-thunk
+$ npm install @material-ui/core
 ```
 For the wordcloud to work:
 ```
