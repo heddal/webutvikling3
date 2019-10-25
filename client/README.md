@@ -76,3 +76,8 @@ For the wordcloud to work:
 ```
 $ npm install --save react-d3-cloud
 ```
+For the infinite scroll to work:
+```
+$ npm install react-infinite-scroller --save
+```
+
