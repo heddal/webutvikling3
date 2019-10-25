@@ -5,18 +5,22 @@ import { connect } from 'react-redux'
 
 class FilterCards extends Component {
         // initialize our state
-        state = {
-            data: [],
-            id: 0,
-            name: null,
-            description: null,
-            continent: null,
-            country: null,
-            source: null, 
-            img: null,
-            popularity: 0,
-            intervalIsSet: false,
-          };
+        constructor(props) {
+          super(props)
+          this.state = {
+              data: [],
+              id: 0,
+              name: null,
+              description: null,
+              continent: null,
+              country: null,
+              source: null, 
+              img: null,
+              popularity: 0,
+              intervalIsSet: false,
+            }
+            this.sortData = this.sortData.bind(this)
+        }
       
         // when component mounts, first thing it does is fetch all existing data in our db
         // then we incorporate a polling logic so that we can easily see if our db has
@@ -40,17 +44,31 @@ class FilterCards extends Component {
         // fetch data from our data base
         getDataFromDb = () => {
           if (this.props.word === "all"){
-            fetch('/api/getData')
-            .then((data) => data.json())  
-            .then((res) => this.sortData(res.data))            
-          } else {
-            fetch('/api/search/' + this.props.word)
+            if (this.props.continent === "all"){
+              console.log("IKKE HER :(((")
+              fetch('/api/getData')
+              .then((data) => data.json())  
+              .then((res) => this.sortData(res.data));
+
+            } else {
+              fetch('/api/search/' + this.props.continent)
               .then((data) => data.json())  
               .then((res) => this.sortData(res.data));
             }
-        };
+            
+          } else if (this.props.continent === 'all') {
+            console.log("INN HER?")
+            fetch('/api/search/' + this.props.word)
+              .then((data) => data.json())  
+              .then((res) => this.sortData(res.data));
+        
+          } else {
+            fetch('/api/search/' + this.props.continent + '/' + this.props.word )
+            .then((data) => data.json())  
+            .then((res) => this.sortData(res.data))
+        }}
 
-        sortData = (data) => {
+        sortData(data){
           if(this.props.sortType){
             if(this.props.sortType === 'A-Z'){
               const sorted = data.sort((a,b) => (a.name > b.name) ? 1:-1)
@@ -60,8 +78,7 @@ class FilterCards extends Component {
               const sorted = data.sort((a,b) => (a.popularity > b.popularity) ? -1:1)
               this.setState({data: sorted});
             }
-          }
-          else{this.setState({data: data})}
+          } else{this.setState({data: data})}
 
         }
 
@@ -77,7 +94,7 @@ class FilterCards extends Component {
           </div> 
         ))}
         </div>
-      ) ;
+      )
     }
 }
 
@@ -86,6 +103,7 @@ const mapStateToProps = (state) => { //give us accsess to the data in store
   const sort = state.sort
   return {
     word: filter.searchWord,
+    continent: filter.continent,
     sortType: sort.sortType
   }
 }

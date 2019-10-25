@@ -77,10 +77,19 @@ router.get('/threeMostPopular', (req, res) => {
 
 router.get('/search/:word', (req, res, next) => {
   const word = req.params.word.toLowerCase()
-  Data.find({$or: [{'name': word}, {'country': word}]}, function (err, data){
+  Data.find({$or: [{'name': word}, {'country': word}, {'continent': word}]}, function (err, data){
     if (err) return res.json({ success: false, error: err });
     return res.json({ success: true, data: data });
-})})
+  })})
+
+  router.get('/search/:continent/:word', (req, res) => {
+    console.log(req.params)
+    const continent = req.params.continent.toLowerCase()
+    const word = req.params.word.toLowerCase()
+    Data.find({ $and: [ {$or: [{'name': word}, {'country': word}]}, {'continent': continent} ]} , function (err, data){
+      if (err) return res.json({ success: false, error: err })
+      return res.json({ success: true, data: data });
+  })})
 
 //get the three most popular destinations to show at the main page
 router.get('/wordcloudPopularity', (req, res) => {
