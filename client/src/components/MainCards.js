@@ -56,13 +56,11 @@ class Cards extends Component {
 
 
 
-  //If the key pressed is the enter-key, the searchword will be updated in store
+  // Show right destination and update the popularity of this destination
    handleButtonClick = (denneID, newPopularity) => props =>{ 
     this.props.showDestination(denneID);
     newPopularity++;
     this.updateDB(denneID, newPopularity);
-
-
   };
 
 
@@ -91,11 +89,5 @@ const mapDispatchToProps = (dispatch) => {
   }
 };
 
-const mapStateToProps = (state) => { //give us accsess to the data in store
-  return {
-    destinationID: state.destination.destinationID
-  }
-}
 
-
-export default connect(mapStateToProps, mapDispatchToProps)(Cards);
+export default connect(null, mapDispatchToProps)(Cards);

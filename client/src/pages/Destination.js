@@ -64,9 +64,11 @@ class Destination extends Component {
                         <div >
                             <h2> {data.name} </h2>
                             <h4> {data.country}, {data.continent}</h4>
-                            <div className='bilde'> <img src = {data.img} alt="alt" /> </div>
+                            <div className='bilde'> 
+                              <img src = {data.img} alt="alt" /> 
+                            </div>
                             <p> {data.description}</p>
-                            <p alignItems="flex-end">This info is retrieved from: {data.source}</p>
+                            <p >This info is retrieved from: {data.source}</p>
                         </div>
                     </Paper>
                 </Grid>
