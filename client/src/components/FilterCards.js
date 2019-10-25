@@ -77,7 +77,7 @@ class FilterCards extends Component {
         this.setState({data: sorted});
       }
     } else{this.setState({data: data})}
-    this.state.maxItems = this.props.setLength(data.length);
+    this.setState({maxItems: this.props.setLength(data.length)});
   }
 
 
