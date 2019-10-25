@@ -42,3 +42,19 @@ Vi har brukt redux til å håndtere states som vi ønsker at skal kunne deles me
 Som nevnt har vi brukt MongoDB som database på serveren, og brukt Express til REST API-et. Alt som ligger i databasen er opprettet av og vil videre driftes av gruppa.
 
 For å holde designet mer eller mindre konsistent har vi brukt design-rammeverket MaterialUI. Herfra har vi hentet ut ikoner, og brukt deres komponenter som Paper, Grid og Menu for å designe sidene og komponentene våre.
+
+
+### Krav til testing
+*Cypress*
+De Cypress-testene vi har laget ligger under Cypress -> integration. Disse testene sjekker hovedsakelig at sidene laster inn riktig informasjon. 
+
+Sjekk ut wiki for å se hvordan man kjører testene. 
+
+Vi tester bl.a:
+
+1.  Dersom vi trykker oss inn på Oslo så skal Destination-page vise informasjonen som ligger under Oslo.
+2.  Når man går fra hovedsiden til ordskyen, og da må minst de tre mest populære byene vises i ordskyen.
+3.  Hvis man søker på "all", altså søker med tomt søkefelt, sjekkes det om Trondheim finnes på siden. Det sjekkes også at riktig info kommer opp dersom man søker på spesielt sted, eks Amsaterdam som det står i testen.
+4.  Det er også en test for generell info som sjekker at alt blir riktig hvis du trykker deg rundt.  
+
+Alle testene sjekker "hardkodet" data og vil kun funke for visse tilfeller. Eks vil test 2 kun funke dersom Oslo, Trondheim og Paris er de mest populære byene.
