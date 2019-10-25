@@ -43,7 +43,7 @@ class Cards extends Component {
 
   // gets the three most popular cities for quick viewing
   getDataFromDb = () => {
-    fetch('/api/threeMostPopular/')
+    fetch('http://it2810-10.idi.ntnu.no:3001/api/threeMostPopular/')
       .then((data) => data.json())
       .then((res) => this.setState({
         data: res.data
@@ -53,7 +53,7 @@ class Cards extends Component {
   // our update method that uses our backend api
   // to overwrite existing data base information
   updateDB(idToUpdate, newPopularity){
-    axios.post('/api/updateData', {
+    axios.post('http://it2810-10.idi.ntnu.no:3001/api/updateData', {
       id: idToUpdate,
       update: { popularity: newPopularity },
     });

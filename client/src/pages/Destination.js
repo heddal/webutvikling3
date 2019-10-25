@@ -39,7 +39,7 @@ class Destination extends Component {
     
       // gets data matching the city
       getDataFromDb = () => {
-        fetch('/api/getDataFrom/' + this.props.destinationID)
+        fetch('http://it2810-10.idi.ntnu.no:3001/api/getDataFrom/' + this.props.destinationID)
           .then((data) => data.json())
           .then((res) => this.setState({ 
             data: res.data

@@ -45,23 +45,23 @@ class FilterCards extends Component {
   getDataFromDb = () => {
     if (this.props.word === "all"){
       if (this.props.continent === "all"){
-        fetch('/api/getData')
+        fetch('http://it2810-10.idi.ntnu.no:3001/api/getData')
         .then((data) => data.json())  
         .then((res) => this.sortData(res.data));
 
       } else {
-        fetch('/api/search/' + this.props.continent)
+        fetch('http://it2810-10.idi.ntnu.no:3001/api/search/' + this.props.continent)
         .then((data) => data.json())  
         .then((res) => this.sortData(res.data));
       }
       
     } else if (this.props.continent === 'all') {
-      fetch('/api/search/' + this.props.word)
+      fetch('http://it2810-10.idi.ntnu.no:3001/api/search/' + this.props.word)
         .then((data) => data.json())  
         .then((res) => this.sortData(res.data));
   
     } else {
-      fetch('/api/search/' + this.props.continent + '/' + this.props.word )
+      fetch('http://it2810-10.idi.ntnu.no:3001/api/search/' + this.props.continent + '/' + this.props.word )
       .then((data) => data.json())  
       .then((res) => this.sortData(res.data))
   }}
@@ -84,7 +84,7 @@ class FilterCards extends Component {
   // this will update the popularity count of the destination
   updateDB = (idToUpdate, newPopularity) => {
 
-    axios.post('/api/updateData', {
+    axios.post('http://it2810-10.idi.ntnu.no:3001/api/updateData', {
       id: idToUpdate,
       update: { popularity: newPopularity },
     });
