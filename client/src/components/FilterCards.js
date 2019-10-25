@@ -133,7 +133,7 @@ class FilterCards extends Component {
           hasMore={this.state.hasMoreItems}
           useWindow = {false}
         >
-          <div style={{display:'flex', flexWrap:'wrap', justifyContent:'center', height: "100%", overflow: "scroll"}}>
+          <div style={{display:'flex', flexWrap:'wrap', justifyContent:'center', height: "100%"}}>
                 {dataCards.slice(0, this.state.items)}
           </div>
               
