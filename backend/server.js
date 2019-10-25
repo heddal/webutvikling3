@@ -87,7 +87,7 @@ router.get('/search/:word', (req, res, next) => {
     const continent = req.params.continent.toLowerCase()
     const word = req.params.word.toLowerCase()
     Data.find({ $and: [ {$or: [{'name': word}, {'country': word}]}, {'continent': continent} ]} , function (err, data){
-      if (err) return res.json({ success: false, error: err });
+      if (err) return res.json({ success: false, error: err })
       return res.json({ success: true, data: data });
   })})
 

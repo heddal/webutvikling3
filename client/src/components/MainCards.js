@@ -8,11 +8,17 @@ import axios from 'axios'
 
 class Cards extends Component {
     // initialize our state
-    state = {
-      data: [],
-      popularity: null,
-      intervalIsSet: false,
-    };
+    constructor(props){
+      super(props)
+      this.state = {
+        data: [],
+        popularity: null,
+        intervalIsSet: false,
+      };
+
+      this.updateDB = this.updateDB.bind(this)
+
+    }
 
   // when component mounts, first thing it does is fetch all existing data in our db
   // then we incorporate a polling logic so that we can easily see if our db has
@@ -42,18 +48,17 @@ class Cards extends Component {
       .then((res) => this.setState({
         data: res.data
       }));
-      console.log(this.state.data)
+      console.log(this.state.data);
   };
 
   // our update method that uses our backend api
   // to overwrite existing data base information
-  updateDB = (idToUpdate, newPopularity) => {
-
+  updateDB(idToUpdate, newPopularity){
     axios.post('/api/updateData', {
       id: idToUpdate,
       update: { popularity: newPopularity },
     });
-  };
+  }
 
 
 

@@ -5,7 +5,8 @@ import { connect } from 'react-redux'
 
 class FilterCards extends Component {
         // initialize our state
-        constructor() {
+        constructor(props) {
+          super(props)
           this.state = {
               data: [],
               id: 0,
@@ -17,8 +18,7 @@ class FilterCards extends Component {
               img: null,
               popularity: 0,
               intervalIsSet: false,
-            };
-
+            }
             this.sortData = this.sortData.bind(this)
         }
       
@@ -49,6 +49,7 @@ class FilterCards extends Component {
               fetch('/api/getData')
               .then((data) => data.json())  
               .then((res) => this.sortData(res.data));
+
             } else {
               fetch('/api/search/' + this.props.continent)
               .then((data) => data.json())  
@@ -61,15 +62,13 @@ class FilterCards extends Component {
               .then((data) => data.json())  
               .then((res) => this.sortData(res.data));
         
-            } else {
-              console.log("INNNE I FILTER:", this.props.continent, ",", this.props.word )
-              fetch('/api/search/' + this.props.continent + '/' + this.props.word )
-              .then((data) => data.json())  
-              .then((res) => this.sortData(res.data));
-              console.log(this.state.data)
-        };
+          } else {
+            fetch('/api/search/' + this.props.continent + '/' + this.props.word )
+            .then((data) => data.json())  
+            .then((res) => this.sortData(res.data))
+        }}
 
-        this.sortData = (data) => {
+        sortData(data){
           if(this.props.sortType){
             if(this.props.sortType === 'A-Z'){
               const sorted = data.sort((a,b) => (a.name > b.name) ? 1:-1)
@@ -79,10 +78,9 @@ class FilterCards extends Component {
               const sorted = data.sort((a,b) => (a.popularity > b.popularity) ? -1:1)
               this.setState({data: sorted});
             }
-          }
-          else{this.setState({data: data})}
+          } else{this.setState({data: data})}
 
-        }}
+        }
 
     render() { 
       const {data}  = this.state;
@@ -96,7 +94,7 @@ class FilterCards extends Component {
           </div> 
         ))}
         </div>
-      ) ;
+      )
     }
 }
 
