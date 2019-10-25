@@ -5,7 +5,6 @@ import { createStore, applyMiddleware } from 'redux';
 import rootReducer from './reducers/RootReducer';
 import { Provider } from 'react-redux'
 import thunk from 'redux-thunk'
-import BobIsOnTheMove from './pages/BobIsOnTheMove'
 import Destination from './pages/Destination'
 import SearchPage from './pages/SearchPage'
 import WordCloud from './pages/WordCloud'
@@ -24,7 +23,6 @@ class App extends Component {
             <Route path="/" exact component={Main} />
             <Route path="/wordcloud" component={WordCloud} />
             <Route path="/search" component={SearchPage} />
-            <Route path="/bob" component={BobIsOnTheMove} /> {/* just for developing purposeses */}
             <Route path="/destination" component={Destination} />
           </Router>
       </Provider>

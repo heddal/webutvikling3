@@ -45,7 +45,6 @@ class FilterCards extends Component {
   getDataFromDb = () => {
     if (this.props.word === "all"){
       if (this.props.continent === "all"){
-        console.log("IKKE HER :(((")
         fetch('/api/getData')
         .then((data) => data.json())  
         .then((res) => this.sortData(res.data));
@@ -57,7 +56,6 @@ class FilterCards extends Component {
       }
       
     } else if (this.props.continent === 'all') {
-      console.log("INN HER?")
       fetch('/api/search/' + this.props.word)
         .then((data) => data.json())  
         .then((res) => this.sortData(res.data));
