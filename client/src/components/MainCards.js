@@ -41,8 +41,7 @@ class Cards extends Component {
     }
   }
 
-  // our first get method that uses our backend api to
-  // fetch data from our data base
+  // gets the three most popular cities for quick viewing
   getDataFromDb = () => {
     fetch('/api/threeMostPopular/')
       .then((data) => data.json())

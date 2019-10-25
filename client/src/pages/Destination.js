@@ -37,8 +37,7 @@ class Destination extends Component {
         }
       }
     
-      // our first get method that uses our backend api to
-      // fetch data from our data base
+      // gets data matching the city
       getDataFromDb = () => {
         fetch('/api/getDataFrom/' + this.props.destinationID)
           .then((data) => data.json())

@@ -40,8 +40,8 @@ class FilterCards extends Component {
     }
   }
 
-  // our first get method that uses our backend api to
-  // fetch data from our data base
+  // checks the different filters chekced/not checked( = all) and get the correct data
+  // all data goes through sort and comes back the way the user has chosen to sort it
   getDataFromDb = () => {
     if (this.props.word === "all"){
       if (this.props.continent === "all"){
