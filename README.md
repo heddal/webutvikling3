@@ -1,22 +1,26 @@
 ## Dokumentasjon
 ### Krav til funksjonalitet
-*En dialog/form for input av søk*
+**En dialog/form for input av søk**
 
 Vi hentet søkefeltet vårt fra material.ui og endret den til våre behov. Vi endret den slik at hvis brukeren trykker på enter-knappen så lagres søkeordet med redux slik at vi kan over alle komponenter vite hvilket ord som det blir søkt med.
 
-*Listebasert presentasjon av søk*
+**Listebasert presentasjon av søk**
+
 Etter første søk så blir brukeren omdirigert til søkesiden vår hvor alle stedene som matcher søket kommer opp på hvert sitt card. (Ønsker man å se alle stedene kan man enten trykke enter uten søkeord eller søke “all”). På PC-skjerm er cardene plassert tre og tre på rad. Vi har brukt Infinite scroll slik at brukeren kan dynamisk laste flere resultater ved scrolling.
 
-*Muligheten til å se mer detaljer om hvert av objektene*
+**Muligheten til å se mer detaljer om hvert av objektene**
+
 På hvert card så har vi en “view more” knapp som omdirigerer brukeren til en side med mer informasjon om stedet de har valgt. Vi syns dette var den mest ryddige og effektive måten å gi brukeren mer informasjon.
 
-*Mulighet for sortering og filtrering*
+**Mulighet for sortering og filtrering**
+
 Vi har to typer for filtrering: det første er søkefeltet hvor brukeren kan søke etter by og land. 
 Når brukeren har kommet inn på søkesiden er det også muligheten for å velge mellom 5 kontinenter eller alle på en gang ved å trykke på knappene under søkefeltet.
 
 Sortering gjøres mulig ved en drop-meny oppe i høyre hjørne. Her kan brukeren velge å sortere etter popularitet (populariteten velges etter hvor mange ganger et sted har blitt “viewed more”) eller alfabetisk. 
 
-*Noen bruker/brukergenererte data som lagres og presenteres & Avansert visning av data*
+**Noen bruker/brukergenererte data som lagres og presenteres & Avansert visning av data**
+
 Her valgte vi å slå to fluer i en smekk og vise vår brukergenererte data som en ordsky. Hver gang en bruker trykker på “view more” øker “popularity”-fieldet til den byen med 1. Hvor mer populært en by er, jo større vises bynavnet i ordskyen. Ordskyen finner brukeren ved å klikke på “click here” på hovedsiden. 
 
 ### Krav til backend
@@ -29,7 +33,7 @@ Vi bruker express for å holde styr på routing og requester, så henter vi ut d
 
 
 ### Krav til bruk av teknologi
-*React*
+**React**
 
 I dette prosjektet valgte vi å “dele” komponentene våre i to. Vi har laget 4 komponenter (Main, Searchpage, Destination, Wordcloud) i mappen “pages” som er, som navnet tilsvarer, sidene våre. De 4 sidene er alle definert i app.js og blir routet mellom ved hjelp av ‘react-router-dom’ biblioteket. 
 
@@ -37,7 +41,7 @@ Vi har bygget opp sidene ved hjelp av de andre komponentene som er under “comp
 
 Vi startet SearchBox ved å bruke kode fra material.ui og heller bygge på det vi trengte (her i blant lagring av søkeord i redux). 
 
-*Redux*
+**Redux**
 
 Vi har brukt redux til å håndtere states som vi ønsker at skal kunne deles mellom komponenter. Eksempelvis lagres hvilken sorterings-type som er valgt i componenten Sorting.js i redux. Denne staten deles så til komponenten FilterCards.js som da sorterer dataen ut fra hvilken sorterings-type som er valgt. 
 
@@ -47,7 +51,7 @@ For å holde designet mer eller mindre konsistent har vi brukt design-rammeverke
 
 
 ### Krav til testing
-*Cypress*
+**Cypress**
 
 De Cypress-testene vi har laget ligger under Cypress -> integration. Disse testene sjekker hovedsakelig at sidene laster inn riktig informasjon. 
 
