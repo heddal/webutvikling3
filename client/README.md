@@ -72,3 +72,7 @@ $ npm install redux
 $ npm install react-redux
 $ npm install redux-thunk
 ```
+For the wordcloud to work:
+```
+$ npm install --save react-d3-cloud
+```
