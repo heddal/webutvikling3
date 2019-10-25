@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import WordCloud from 'react-d3-cloud';
-import './WordCloud.css';
 
 const fontSizeMapper = word => Math.log2(word.value) * 5 + 15;
 const rotate = word => Math.random() *360;
@@ -25,13 +24,20 @@ getDataFromDb = () => {
     .then((res) => this.renameKeys(res.data));
 };
 
+// Capitalize words
+// Eg. have cities as Rome, not rome.
+capitalize(s) {
+  if (typeof s !== 'string') return ''
+  return s.charAt(0).toUpperCase() + s.slice(1)
+}
+
 // WordCloud needs data on the form [{text: Rome, value: 2}, {text: Paris, value: 5}]
 // This function rename keys
 renameKeys(data) { // list of elements [{name: Rome, popularity: 2}, {name: Paris, popularity: 5}]
   var new_data =  [];
   var i;
   for (i = 0; i < data.length; i++) {
-    var d = {'text': data[i]['name'], 'value':data[i]['popularity']}
+    var d = {'text': this.capitalize(data[i]['name']), 'value': data[i]['popularity']}
     new_data.push(d);
   }
   this.setState({
@@ -39,14 +45,16 @@ renameKeys(data) { // list of elements [{name: Rome, popularity: 2}, {name: Pari
   })
 }
 
-
   render(){
     return(
+      <div style={{justifyContent:"center", display:"flex"}}>
         <WordCloud
           data={this.state.data}
+          font='Impact'
           fontSizeMapper={fontSizeMapper}
           rotate={rotate}
         />
+      </div>
     )
   }
 }
