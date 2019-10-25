@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import WordCloud from 'react-d3-cloud';
+import BackButton from '../components/BackButton';
 
 const fontSizeMapper = word => Math.log2(word.value) * 5 + 15;
 const rotate = word => Math.random() *360;
@@ -48,6 +49,7 @@ renameKeys(data) { // list of elements [{name: Rome, popularity: 2}, {name: Pari
   render(){
     return(
       <div style={{justifyContent:"center", display:"flex"}}>
+        <BackButton />
         <WordCloud
           data={this.state.data}
           font='Impact'

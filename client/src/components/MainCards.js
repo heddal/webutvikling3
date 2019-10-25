@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux'
 import { showDestination } from '../actions/DestinationAction';
 import axios from 'axios'
+import { changeSearchword } from '../actions/SearchAction'
 
 
 class Cards extends Component {
@@ -66,6 +67,7 @@ class Cards extends Component {
     this.props.showDestination(denneID);
     newPopularity++;
     this.updateDB(denneID, newPopularity);
+    this.props.changeSearchword("")
   };
 
   // Retrieve data to one card
@@ -95,9 +97,11 @@ class Cards extends Component {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    showDestination: (destinationID) => dispatch(showDestination(destinationID))
+    showDestination: (destinationID) => dispatch(showDestination(destinationID)),
+    changeSearchword: (searchWord) => dispatch(changeSearchword(searchWord))
   }
 };
+
 
 
 export default connect(null, mapDispatchToProps)(Cards);
