@@ -1,5 +1,6 @@
 // this is the main page
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import Grid from '@material-ui/core/Grid';
 import './Main.css';
 import MainCards from '../components/MainCards';
@@ -13,7 +14,6 @@ class Main extends Component {
             <div className="alt">
                 <Grid container justify="center" alignItems="center" direction="column"  className="main">
                     <Grid container className="text">
-
                         <div className="content">
                             <h3>
                                 Dream destination
@@ -22,17 +22,17 @@ class Main extends Component {
                                 Where is your ultimate destination?
                             </h4>
                             <Searchbox/>
+                            <p>
+                              To se the most visited pages
+                              <Link to="/wordcloud" className='link'>
+                                click here
+                              </Link>
+                            </p>
                         </div>
-
                     </Grid>
-
-
                     <Grid container justify="center" spacing={2}>
-                           <MainCards/> 
-                        
+                           <MainCards/>
                     </Grid>
-
-
                 </Grid>
             </div>
         );

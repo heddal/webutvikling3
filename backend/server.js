@@ -81,14 +81,17 @@ router.get('/search/:word', (req, res, next) => {
     if (err) return res.json({ success: false, error: err });
     return res.json({ success: true, data: data });
 })})
- 
 
-
+//get the three most popular destinations to show at the main page
+router.get('/wordcloudPopularity', (req, res) => {
+  Data.find().select('name popularity -_id').exec(function(err, data){
+    if (err) return res.json({ success: false, error: err });
+    return res.json({ success: true, data: data });
+  })
+})
 
 // append /api for our http requests
 app.use('/api', router);
 
 // launch our backend into a port
 app.listen(API_PORT, () => console.log(`LISTENING ON PORT ${API_PORT}`));
-
-

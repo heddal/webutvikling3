@@ -39,9 +39,10 @@ class Cards extends Component {
   getDataFromDb = () => {
     fetch('/api/threeMostPopular/')
       .then((data) => data.json())
-      .then((res) => this.setState({ 
+      .then((res) => this.setState({
         data: res.data
       }));
+      console.log(this.state.data)
   };
 
   // our update method that uses our backend api
@@ -57,14 +58,13 @@ class Cards extends Component {
 
 
   //If the key pressed is the enter-key, the searchword will be updated in store
-   handleButtonClick = (denneID, newPopularity) => props =>{ 
+   handleButtonClick = (denneID, newPopularity) => props =>{
     this.props.showDestination(denneID);
     newPopularity++;
     this.updateDB(denneID, newPopularity);
 
 
   };
-
 
   // Retrieve data to one card
   render() {
@@ -73,17 +73,23 @@ class Cards extends Component {
       <div className="trio">
       {data.map(dat => (
         <div className = 'card-container' key={dat.name}>
-            <div className = 'card-item'> <img src = {dat.img} alt="alt" /> </div>
+            <div className = 'card-item'>
+              <img src = {dat.img} alt="alt" />
+            </div>
             <div className = 'card-item'> {dat.name} </div>
-            <div className = 'card-item' > <Link to="/Destination" className='link'><button onClick={this.handleButtonClick(dat._id, dat.popularity)}> Show More </button> </Link> </div>
-        </div> 
+            <div className = 'card-item' >
+              <Link to="/Destination" className='link'>
+                <button onClick={this.handleButtonClick(dat._id, dat.popularity)}>
+                  Show More
+                </button>
+              </Link>
+            </div>
+        </div>
       ))}
       </div>
     );
   }
-
 }
-
 
 const mapDispatchToProps = (dispatch) => {
   return {
