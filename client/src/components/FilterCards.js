@@ -29,7 +29,7 @@ class FilterCards extends Component {
     if (!this.state.intervalIsSet) {
       let interval = setInterval(this.getDataFromDb, 1000);
       this.setState({ intervalIsSet: interval });
-    }
+    };
     window.addEventListener('scroll', this.loadMore.bind(this), false);
   }  
 
