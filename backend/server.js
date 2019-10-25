@@ -20,6 +20,12 @@ mongoose.connect(dbRoute, { useNewUrlParser: true });
 
 let db = mongoose.connection;
 
+app.use(express.static(path.join(__dirname, 'build')));
+-app.get('/', function (req, res) {
++app.get('/*', function (req, res) {
+   res.sendFile(path.join(__dirname, 'build', 'index.html'));
+ })});
+
 db.once('open', () => console.log('connected to the database'));
 
 // checks if connection with the database is successful
