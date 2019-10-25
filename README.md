@@ -30,6 +30,7 @@ Vi bruker express for å holde styr på routing og requester, så henter vi ut d
 
 ### Krav til bruk av teknologi
 *React*
+
 I dette prosjektet valgte vi å “dele” komponentene våre i to. Vi har laget 4 komponenter (Main, Searchpage, Destination, Wordcloud) i mappen “pages” som er, som navnet tilsvarer, sidene våre. De 4 sidene er alle definert i app.js og blir routet mellom ved hjelp av ‘react-router-dom’ biblioteket. 
 
 Vi har bygget opp sidene ved hjelp av de andre komponentene som er under “component”-mappa. For å få så lite kode som mulig, ønket vi å lage komponenter som kunne brukes på flere av pagesene (gjenbruk woho!). Vi startet derfor å bare ha et Card komponent vi tenkte å bruke på både hoved- og søkesiden. Vi så etterhvert at hvordan vi ønsket Card til å hente ut data ble så forskjellig at det ble enklere og “renere” å separere dette komponentet til to komponenter: MainCards og FilterCards. Vi holdt fremdeles stylinga til cardene enkle ved å bruke samme css fil til begge komponentene. 
@@ -37,6 +38,7 @@ Vi har bygget opp sidene ved hjelp av de andre komponentene som er under “comp
 Vi startet SearchBox ved å bruke kode fra material.ui og heller bygge på det vi trengte (her i blant lagring av søkeord i redux). 
 
 *Redux*
+
 Vi har brukt redux til å håndtere states som vi ønsker at skal kunne deles mellom komponenter. Eksempelvis lagres hvilken sorterings-type som er valgt i componenten Sorting.js i redux. Denne staten deles så til komponenten FilterCards.js som da sorterer dataen ut fra hvilken sorterings-type som er valgt. 
 
 Som nevnt har vi brukt MongoDB som database på serveren, og brukt Express til REST API-et. Alt som ligger i databasen er opprettet av og vil videre driftes av gruppa.
@@ -46,6 +48,7 @@ For å holde designet mer eller mindre konsistent har vi brukt design-rammeverke
 
 ### Krav til testing
 *Cypress*
+
 De Cypress-testene vi har laget ligger under Cypress -> integration. Disse testene sjekker hovedsakelig at sidene laster inn riktig informasjon. 
 
 Sjekk ut wiki for å se hvordan man kjører testene. 
