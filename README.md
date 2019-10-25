@@ -14,3 +14,6 @@ $ npm install --save-dev nodemon
 ```
 $ npm install concurrently --save
 ```
+```
+$ npm install --save-dev jest
+```
