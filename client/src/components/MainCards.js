@@ -78,7 +78,7 @@ class Cards extends Component {
             <div className = 'card-item'>
               <img src = {dat.img} alt="alt" />
             </div>
-            <div className = 'card-item'> {dat.name} </div>
+            <div className = 'card-item'> <p style = {{textTransform: 'capitalize'}}>{dat.name}</p> </div>
             <div className = 'card-item' >
               <Link to="/Destination" className='link'>
                 <button onClick={this.handleButtonClick(dat._id, dat.popularity)}>
