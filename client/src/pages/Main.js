@@ -31,12 +31,7 @@ class Main extends Component {
                         </div>
                     </Grid>
                     <Grid container justify="center" spacing={2}>
-<<<<<<< HEAD
-                           <MainCards/> 
-                        
-=======
-                      <Cards/>
->>>>>>> #11 make wordcloud
+                           <MainCards/>
                     </Grid>
                 </Grid>
             </div>
